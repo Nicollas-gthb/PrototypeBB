@@ -5,7 +5,10 @@ services:
       - "8000:8000" #Mapeia [Porta da sua Máquina]:[Porta do Container]
     volumes:
       - ./backend:/app #Mapeia o diretório do código para dentro do container
-    #environment:
+    env_file:
+      - .env
+    depends_on:
+      - db
       
 
   react: #Nome do serviço para o frontend
@@ -16,6 +19,18 @@ services:
       - ./frontend:/app #Mapeia o diretório do código para dentro do container
       - /app/node_modules # Evita que o node_modules do host sobrescreva o do container
     environment:
-      - VITE_API_URL=http://fastapi:8000 #URL da API para o frontend
-    depends_on:
-      - fastapi
+      - VITE_API_URL=http://localhost:8000 #URL da API para o frontend
+    
+  db: #Nome do serviço para o banco de dados
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: #Volume para persistência dos dados do PostgreSQL
