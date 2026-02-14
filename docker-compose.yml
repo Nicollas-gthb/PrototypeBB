@@ -19,7 +19,9 @@ services:
       - ./frontend:/app #Mapeia o diretório do código para dentro do container
       - /app/node_modules # Evita que o node_modules do host sobrescreva o do container
     environment:
-      - VITE_API_URL=http://localhost:8000 #URL da API para o frontend
+      - VITE_API_URL=http://fastapi:8000 #URL da API para o frontend
+    depends_on:
+      - fastapi
     
   db: #Nome do serviço para o banco de dados
     image: postgres:15
