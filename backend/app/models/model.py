@@ -30,7 +30,7 @@ class Candidato(Base):
     conhecimentos = Column(String)
 
     usuario = relationship("Usuario", back_populates="perfil_candidato")
-    vagas_aplicadas = relationship("GerenciadorVaga", back_populates="candidato")
+    vagas_aplicadas = relationship("Candidatura", back_populates="candidato")
 
 class Vaga(Base):
     __tablename__ = "vagas"
@@ -46,15 +46,15 @@ class Vaga(Base):
     status = Column(String, default="ABERTA") #ABERTA ou ENCERRADA
     requisitos = Column(String)
 
-    candidaturas = relationship("GerenciadorVaga", back_populates="vaga")
+    candidaturas = relationship("Candidatura", back_populates="vaga")
 
 
-class GerenciadorVaga(Base):
-    __tablename__ = "gerenciador_vagas"
+class Candidatura(Base):
+    __tablename__ = "candidatura"
 
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    id_vaga = Column(Integer)
-    id_candidato = Column(Integer)
+    id_vaga = Column(Integer, ForeignKey("vagas.id"))
+    id_candidato = Column(Integer, ForeignKey("candidato.id"))
     afinidade = Column(Integer)
     status = Column(String, default="PENDENTE") #PENDENTE ou CONTRATADO ou REJEITADO
 
