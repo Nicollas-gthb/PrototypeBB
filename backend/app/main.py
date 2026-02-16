@@ -16,10 +16,6 @@ def root():
         "status": "Docker rodando: FastAPI"
     }
 
+from routes.auth import auth_router
 
-# # OAuth2PasswordBearer é uma configuração padrão do fastapi 
-# # para tokens do tipo bearer
-
-# oauth2_schema = OAuth2PasswordBearer(
-#     tokenUrl="/auth/login"
-# )
+app.include_router(auth_router)

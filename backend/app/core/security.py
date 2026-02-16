@@ -16,7 +16,7 @@ REFRESH_TOKEN_EXPIRE_DAYS = os.getenv("REFRESH_TOKEN_EXPIRE_DAYS")
 #variavel para criptografar
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-def hash_senha(senha: str) -> str:
+def criptografar(senha: str) -> str:
     return bcrypt_context.hash(senha)
 
 def verificar_senha(senha: str, senha_hash: str) -> bool:
