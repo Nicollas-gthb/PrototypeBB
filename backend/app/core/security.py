@@ -1,6 +1,12 @@
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from datetime import datetime, timedelta, timezone
+from fastapi import Depends, HTTPException
+from fastapi.security import OAuth2PasswordBearer
+from sqlalchemy.orm import Session
+from models.model import Usuario
+
+from core.database import get_session
 
 from dotenv import load_dotenv
 import os
@@ -47,3 +53,24 @@ def criar_refresh_token(id_usuario):
     jwt_code = jwt.encode(dictionary_info, SECRET_KEY, algorithm=ALGORITHM)
     return jwt_code
 
+
+#oauth2
+oauth2_schema = OAuth2PasswordBearer(tokenUrl="/auth/login")
+
+#função para bloquear rotas, exigindo um token
+def get_usuario_atual(
+        token: str = Depends(oauth2_schema),
+        session: Session = Depends()
+    ):
+
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_id = int(payload.get("sub"))
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Token access inválido")
+    
+    usuario = session.query(Usuario).filter(Usuario.id == user_id).first()
+    if not usuario:
+        raise HTTPException(status_code=401, detail="Usuario não encontrado")
+    
+    return usuario

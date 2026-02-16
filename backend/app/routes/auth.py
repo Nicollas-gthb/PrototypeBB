@@ -1,10 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from jose import JWTError, jwt
 
 from core.security import criptografar, verificar_senha, criar_access_token, criar_refresh_token
 from schemas.schema import UsuarioCreate, UsuarioResponse, LoginSchema, TokenSchema
 from models.model import Usuario
 from core.database import get_session
+from core.security import SECRET_KEY, ALGORITHM
 
 auth_router = APIRouter(prefix="/auth", tags=["authentication"])
 
@@ -62,4 +64,22 @@ async def login(
     return {
         "access_token": access_token,
         "refresh_token": refresh_token,
+    }
+
+
+@auth_router.post("/refresh", response_model=TokenSchema)
+async def refresh_token(refresh_token: str):
+
+    try:
+        payload = jwt.decode(refresh_token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_id = (payload.get("sub"))
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Token refresh inválido")
+    
+    new_access_token = criar_access_token(user_id)
+    new_refresh_token = criar_refresh_token(user_id)
+
+    return {
+        "access_token": new_access_token,
+        "refresh_token": new_refresh_token
     }
