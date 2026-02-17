@@ -9,7 +9,9 @@ services:
       - .env
     depends_on:
       - db
-      
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
 
   react: #Nome do serviço para o frontend
     build: ./frontend #Diz onde esse serviço vai operar
