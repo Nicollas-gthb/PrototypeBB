@@ -2,11 +2,11 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from jose import JWTError, jwt
 
-from core.security import criptografar, verificar_senha, criar_access_token, criar_refresh_token
-from schemas.schema import UsuarioCreate, UsuarioResponse, LoginSchema, TokenSchema
-from models.model import Usuario
-from core.database import get_session
-from core.security import SECRET_KEY, ALGORITHM
+from app.core.security import criptografar, verificar_senha, criar_access_token, criar_refresh_token
+from app.core.database import get_session
+from app.core.security import SECRET_KEY, ALGORITHM
+from app.schemas.schema import UsuarioCreate, UsuarioResponse, LoginSchema, TokenSchema
+from app.models.model import Usuario
 
 auth_router = APIRouter(prefix="/auth", tags=["authentication"])
 

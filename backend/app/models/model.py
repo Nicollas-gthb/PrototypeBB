@@ -1,4 +1,11 @@
-from core.database import Base
+## docker compose exec fastapi bash  ->  entra no terminal do container do backend
+## alembic init alembic  ->  inicia o alembic
+## alembic revision --autogenerate -m "mensagem"  ->  faz o stagging do db, deixa pronto pro commit
+## alembic upgrade head  ->  faz o commit e aplica as mudanças no db
+## exit  ->  sai do bash do container 
+
+from app.core.database import Base
+
 from sqlalchemy import Column, String, Integer, Float, Boolean, ForeignKey, Date
 from sqlalchemy.orm import relationship
 
@@ -54,7 +61,7 @@ class Candidatura(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     id_vaga = Column(Integer, ForeignKey("vagas.id"))
-    id_candidato = Column(Integer, ForeignKey("candidato.id"))
+    id_candidato = Column(Integer, ForeignKey("candidatos.id"))
     afinidade = Column(Integer)
     status = Column(String, default="PENDENTE") #PENDENTE ou CONTRATADO ou REJEITADO
 

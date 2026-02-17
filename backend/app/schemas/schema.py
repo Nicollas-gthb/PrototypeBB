@@ -25,7 +25,7 @@ class CandidatoSchema(BaseModel):
     conhecimentos: Optional[str] = None
     
 class CandidatoCreate(CandidatoSchema):
-    id_usuario = int
+    id_usuario: int
 
 class CandidatoResponse(CandidatoSchema):
     id: int

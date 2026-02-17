@@ -4,9 +4,9 @@ from datetime import datetime, timedelta, timezone
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
-from models.model import Usuario
 
-from core.database import get_session
+from app.models.model import Usuario
+from app.core.database import get_session
 
 from dotenv import load_dotenv
 import os
@@ -60,7 +60,7 @@ oauth2_schema = OAuth2PasswordBearer(tokenUrl="/auth/login")
 #função para bloquear rotas, exigindo um token
 def get_usuario_atual(
         token: str = Depends(oauth2_schema),
-        session: Session = Depends()
+        session: Session = Depends(get_session)
     ):
 
     try:
