@@ -1,6 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 1270px;
+  height: 741px;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }

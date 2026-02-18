@@ -1,4 +1,5 @@
 import { useState, useContext } from "react"
+import { useNavigate, Link } from "react-router-dom"
 import { api } from "../../api/axios"
 import { AuthContext } from "../../contexts/AuthContext"
 
@@ -9,6 +10,7 @@ export default function Login(){
     //quando o use context é usado, ele volta na primeira tag <AuthContext.Provider> 
     // que encontrar, e procura no value o { login }
     const { login } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
@@ -32,61 +34,59 @@ export default function Login(){
         <>
             <Header />
 
-            <div className="login-background">
+            <main className="login-background">
+                <section id="login">
+                    <div id="box-formulario">
 
-                <main>
-                    <section id="login">
-                        <div id="box-formulario">
+                        <h1 id="login-titulo">Faca seu login para adicionar vagas</h1>
 
-                            <h1 id="login-titulo">Faca seu login para adicionar vagas</h1>
+                        <form onSubmit={handleSubmit} method="post" autoComplete="on">
 
-                            <form onSubmit={handleSubmit} method="post" autoComplete="on">
+                            <fieldset className="login-fieldset">
+                                <legend className="login-legend">Email</legend>
+                                <input 
+                                    className="login-input" 
+                                    id="input-login" 
+                                    type="email" 
+                                    placeholder="email@dominio.com" 
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                    required 
+                                    maxLength="50"
+                                />
+                            </fieldset>
 
-                                <fieldset className="login-fieldset">
-                                    <legend className="login-legend">Email</legend>
-                                    <input 
-                                        className="login-input" 
-                                        id="input-login" 
-                                        type="email" 
-                                        placeholder="email@dominio.com" 
-                                        value={email}
-                                        onChange={e => setEmail(e.target.value)}
-                                        required 
-                                        maxLength="50"
-                                    />
-                                </fieldset>
+                            <fieldset className="login-fieldset">
+                                <legend className="login-legend">Senha</legend>
+                                <input 
+                                    className="login-input" 
+                                    id="input-senha" 
+                                    type="password" 
+                                    placeholder="Sua Senha"
+                                    value={senha}
+                                    onChange={e => setSenha(e.target.value)}
+                                    required 
+                                    minLength="5" 
+                                    maxLength="50"
+                                />
+                            </fieldset>
 
-                                <fieldset className="login-fieldset">
-                                    <legend className="login-legend">Senha</legend>
-                                    <input 
-                                        className="login-input" 
-                                        id="input-senha" 
-                                        type="password" 
-                                        placeholder="Sua Senha"
-                                        value={senha}
-                                        onChange={e => setSenha(e.target.value)}
-                                        required 
-                                        minLength="5" 
-                                        maxLength="50"
-                                    />
-                                </fieldset>
+                            <a className="button-esqueci" href="">Esqueci a senha</a>
+                            <a className="button-esqueci" href="">Criar conta</a>
 
-                                <a className="button-esqueci" href="">Esqueci a senha</a>
-
-                                <button 
-                                    className="button-enviar" 
-                                    type="submit" 
-                                    disabled={loading} 
-                                >{loading ? "Carregando..." : "Entrar"}</button>
-                            </form>
+                            <button 
+                                className="button-enviar" 
+                                type="submit" 
+                                disabled={loading} 
+                            >{loading ? "Carregando..." : "Entrar"}</button>
+                        </form>
 
 
-                        </div>
+                    </div>
 
-                        <div id="box-imagem"></div>
-                    </section>
-                </main>
-            </div>
+                    <div id="box-imagem"></div>
+                </section>
+            </main>
         </>
     )
 }

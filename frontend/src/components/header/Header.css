@@ -1,6 +1,6 @@
 #component-header{
     background-color: #fbe304; /*ffcc00*/
-    width: 100%;
+    width: 100vw;
     height: 70px;
     display: flex;
     align-items: center;
