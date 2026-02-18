@@ -18,6 +18,9 @@ export function AuthProvider({children}){
     }
 
     return (
+        //auth context provider, disponibiliza 
+        // o token e as funções de login e logout para os componentes filhos
+        // esses filhos são todas as telas do app, pois o provider é usado no App.jsx
         <AuthContext.Provider value={{ token, login, logout }}> 
             {children}
         </AuthContext.Provider>

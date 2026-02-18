@@ -1,0 +1,115 @@
+#root{
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* body{
+    background-color: #fbe304; fbe304
+    height: 100%;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} */
+
+.login-fieldset{
+    border-radius: 10px;
+    border: 1px solid #003da5;
+    color: #003da5;
+    width: 30vw;
+    margin: 20px 0px;
+    padding: 10px;
+}
+
+.login-legend{
+    padding: 0px 7px 0px 7px;
+    margin-right: auto;
+}
+
+.login-input{
+    border: none;
+    font-size: 17px;
+    width: 100%;
+    margin: auto;
+    background-color: #ffffff;
+    color: #242424;
+    padding-left: 7px;
+}
+
+.login-input:focus-visible{
+    border: none;
+    outline: none;
+}
+
+#login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ffffff;
+    height: 500px;
+    width: 80vw;
+    border-radius: 30px;
+
+    box-shadow: 5px 2px 2px rgba(0, 0, 0, 0.492);
+}
+
+#login-titulo{
+    color: #003da5;
+    font-size: 20px;
+}
+
+#box-formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 75%;
+    margin: auto;
+}
+
+.login-background{
+    background-color: #fbe304;
+    height: 100vh;;
+}
+
+.button-esqueci{
+    display: block;
+    text-align: end;
+    font-size: 1em;
+    width: 100%;
+    color: #007ca5;
+}
+
+.button-enviar{
+    margin-top: 15px;
+    padding: 20px;
+    font-size: 20px;
+    width: 100%;
+    background-color: #003da5;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button-enviar:hover{
+    background-color: #fbe304;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+#box-imagem{
+    display: block;
+    background: #5f2c82 url("../../assets/predios.jpg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 80%;
+    border-radius: 0px 30px 30px 0px;
+}
