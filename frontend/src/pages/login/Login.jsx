@@ -24,7 +24,7 @@ export default function Login(){
             const response = await api.post("/auth/login", {email, senha})
             login(response.data.access_token)
         }catch(error){
-            alert("Erro ao fazer login, verifique as credenciais!")
+            alert(error.response?.data?.detail || "Erro ao fazer login")
         }finally{
             setLoading(false)
         }
@@ -34,7 +34,7 @@ export default function Login(){
         <>
             <Header />
 
-            <main className="login-background">
+            <main className="background">
                 <section id="login">
                     <div id="box-formulario">
 
@@ -46,7 +46,7 @@ export default function Login(){
                                 <legend className="login-legend">Email</legend>
                                 <input 
                                     className="login-input" 
-                                    id="input-login" 
+                                    id="input-email" 
                                     type="email" 
                                     placeholder="email@dominio.com" 
                                     value={email}
@@ -71,8 +71,9 @@ export default function Login(){
                                 />
                             </fieldset>
 
-                            <a className="button-esqueci" href="">Esqueci a senha</a>
-                            <a className="button-esqueci" href="">Criar conta</a>
+                            <Link to="" className="login-link">Esqueci a senha</Link>
+                            <Link to="/register" className="login-link">Criar conta</Link>
+                        
 
                             <button 
                                 className="button-enviar" 
@@ -84,7 +85,7 @@ export default function Login(){
 
                     </div>
 
-                    <div id="box-imagem"></div>
+                    <div id="login-box-imagem"></div>
                 </section>
             </main>
         </>

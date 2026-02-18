@@ -1,4 +1,4 @@
-.login-background{
+.background{
     background-color: #fbe304;
     height: 100vh;
     width: 100vw;
@@ -42,7 +42,7 @@
     justify-content: center;
 
     background-color: #ffffff;
-    height: 500px;
+    height: 600px;
     width: 80vw;
     border-radius: 30px;
 
@@ -64,7 +64,7 @@
 }
 
 
-.button-esqueci{
+.login-link{
     display: block;
     text-align: end;
     font-size: 1em;
@@ -92,7 +92,7 @@
     border: 1px solid rgb(0, 0, 0);
 }
 
-#box-imagem{
+#login-box-imagem{
     display: block;
     background: #242424 url("../../assets/predios.jpg") no-repeat;
     background-size: cover;
