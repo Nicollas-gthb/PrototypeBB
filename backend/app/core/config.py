@@ -8,7 +8,4 @@ class Settings(BaseSettings):
     DB_HOST: str
     DB_PORT: str
 
-    class config:
-        env_file = ".env"
-
 settings = Settings()
