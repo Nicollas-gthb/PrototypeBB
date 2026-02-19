@@ -11,7 +11,7 @@ export default function Register(){
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
     const [estado, setEstado] = useState("")
-    const [admin, setAdmin] = useState(false)
+
     const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
@@ -24,9 +24,9 @@ export default function Register(){
             const payload = {
                 nome: nome,
                 email: email,
-                senha: senha,
                 estado: estado.toUpperCase(),
-                admin: admin
+                admin: false,
+                senha: senha
             }
 
             const response = await api.post("/auth/create", payload)
@@ -111,17 +111,6 @@ export default function Register(){
                                     maxLength="2"
                                 />
                             </fieldset>
-
-                            <label id="register-switch">
-                                <input
-                                    id="input-admin" 
-                                    type="checkbox" 
-                                    checked={admin}
-                                    onChange={e => setAdmin(e.target.checked)}
-                                />
-                                <span className="register-slider"></span>
-                                <span className="register-label-text">(opcional) Ler os termos?</span>
-                            </label>
 
                             <button 
                                 className="button-enviar" 
