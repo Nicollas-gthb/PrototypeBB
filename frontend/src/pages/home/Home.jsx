@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom"
 
 import "./Home.css"
-import Header from "../../components/header/Header"
+import { Header } from "../../components/header/Header"
+
 
 export default function Home(){
     const navigate = useNavigate()
 
     function handleCriarVagas(){
-        navigate(/*rota de criar vaga*/)
+        navigate("/add_vaga")
     }
 
     function handleVerVagas(){
@@ -22,7 +23,7 @@ export default function Home(){
         <>
             <Header />
 
-            <main id='home-background'>
+            <main id="home-background">
             
                 <section id="home-titulo">
                     <p>Bem Vindo</p>

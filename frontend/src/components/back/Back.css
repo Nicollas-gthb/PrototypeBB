@@ -1,0 +1,18 @@
+#component-back-button {
+    display: flex;
+    align-items: center;
+    color: #000000;
+    background-color: #ffffff;
+    width: 15vw;
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+}
+
+#component-back-img{
+
+    width: 50px;
+    height: 50px;
+    margin: 5px 15px;
+    cursor: pointer;
+}

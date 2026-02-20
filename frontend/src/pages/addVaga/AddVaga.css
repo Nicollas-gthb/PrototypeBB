@@ -1,0 +1,139 @@
+#add-background{
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100vw;
+    flex-direction: column;
+}
+
+#add-titulo{
+    text-align: center;
+    color: #003DA5;
+    font-size: 1.8em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65vw;
+    margin: 20px;
+}
+
+#add-section-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 65vw;
+
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+    background-color: rgb(255, 255, 255);
+}
+
+#add-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+}
+
+#add-form-cima{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lados{
+    width: 49%; 
+}
+
+.add-field{
+    border-radius: 10px;
+    color: #003DA5;
+    width: 100%;
+    height: 80px;
+    padding: 0px;
+    border: 1px solid #003DA5;
+    font-size: 1.1em;
+}
+
+.add-field-legend{
+    margin-left: 7px;
+    padding: 0px 5px 0px 7px;
+    margin-right: auto;
+}
+
+.add-field-input{
+    width: 97%;
+    box-sizing: border-box;
+    height: 90%;
+    border-radius: 8px;
+    font-size: 1em;
+    margin-left: 7px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    outline: none;
+}
+
+/*Mexe no auto fill de um campo*/
+.add-field-input:-webkit-autofill{
+    /*cor do background do campo*/
+    -webkit-box-shadow: 0 0 0 30px #fbfab2 inset !important;
+
+    /*cor do texto do campo*/
+    -webkit-text-fill-color: #000000 !important;
+}
+
+#add-data::-webkit-calendar-picker-indicator {
+    filter: invert(1)
+            /*brightness(50%)
+            sepia(100%)
+            saturate(10000%)
+            hue-rotate(180deg)*/
+}
+
+#add-baixo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.add-submit-button{
+    margin-top: 30px;
+    margin-right: 5px;
+    padding: 8px 20px;
+    font-size: 1.2em;
+
+    background-color: #003DA5;
+    color: rgb(255, 255, 255);
+    border: none;
+
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    align-self: flex-end;
+    border: 1px solid black;
+}
+
+.add-submit-button:hover {
+    background-color: #FBE304;
+    color: black;
+}
+
+#add-requisitos-field{
+    width: 100%;
+    border-radius: 8px;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+#add-requisitos-input{
+    font-size: 1.1em;
+    margin-top: 5px;
+}

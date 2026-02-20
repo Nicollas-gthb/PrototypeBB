@@ -4,7 +4,7 @@ import { api } from "../../api/axios"
 import { AuthContext } from "../../contexts/AuthContext"
 
 import "./Login.css"
-import Header from "../../components/header/Header"
+import { Header } from "../../components/header/Header"
 
 export default function Login(){
     //quando o use context é usado, ele volta na primeira tag <AuthContext.Provider> 
