@@ -58,7 +58,7 @@ def criar_refresh_token(id_usuario):
 oauth2_schema = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 #função para bloquear rotas, exigindo um token
-def get_usuario_atual(
+async def get_usuario_atual(
         token: str = Depends(oauth2_schema),
         session: Session = Depends(get_session)
     ):
@@ -74,3 +74,14 @@ def get_usuario_atual(
         raise HTTPException(status_code=401, detail="Usuario não encontrado")
     
     return usuario
+
+async def get_usuario_admin(
+        usuario_atual: Usuario = Depends(get_usuario_atual)
+    ):
+
+    if not usuario_atual.admin:
+        raise HTTPException(status_code=403, detail="Operação restrita a administradores.")
+    
+    return usuario_atual
+
+    

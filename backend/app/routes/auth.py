@@ -81,5 +81,6 @@ async def refresh_token(refresh_token: str):
 
     return {
         "access_token": new_access_token,
-        "refresh_token": new_refresh_token
+        "refresh_token": new_refresh_token,
+        "token_type": "bearer"
     }

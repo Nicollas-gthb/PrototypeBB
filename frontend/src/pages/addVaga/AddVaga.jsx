@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { api } from "../../api/axios"
 
 import { Header } from "../../components/header/Header"
 import { Back } from "../../components/back/Back"
 import "./AddVaga.css"
+import { AuthContext } from "../../contexts/AuthContext"
 
 export default function AddVaga(){
     const navigate = useNavigate()
@@ -19,6 +20,8 @@ export default function AddVaga(){
     const [local, setLocal] = useState("")
     const [requisitos, setRequisitos] = useState("")
 
+    const { token } = useContext(AuthContext)
+
     function handlePrevious(){
         navigate("/home")
     }
@@ -31,15 +34,19 @@ export default function AddVaga(){
             const payload = {
                 area: area,
                 cargo: cargo,
-                jornada: Number(jornada),
+                jornada: parseInt(jornada),
                 tipo: tipo,
                 data_inicio: data_inicio,
-                salario: Number(salario),
+                salario: parseFloat(salario),
                 local: local,
                 requisitos: requisitos
             }
             
-            const response = await api.post("/vagas/create", payload)
+            const response = await api.post("/vagas/create", payload, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
             alert("Vaga foi criada com sucesso!")
         }catch(error){
             alert("Erro ao criar esta vaga!")
