@@ -6,7 +6,7 @@ import Login from "../pages/login/Login"
 import Home from "../pages/home/Home"
 import Register from "../pages/register/Register"
 import AddVaga from "../pages/addVaga/AddVaga"
-import ListVaga from "../pages/listVaga/listVaga"
+import ListVaga from "../pages/listVaga/ListVaga"
 
 export default function AppRoutes(){
     const { token } = useContext(AuthContext)
