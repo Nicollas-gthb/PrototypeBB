@@ -16,6 +16,14 @@
     padding: 10px;
 }
 
+.login-fieldset:-webkit-autofill{
+    /*cor do background do campo*/
+    -webkit-box-shadow: 0 0 0 30px #fbfab2 inset !important;
+
+    /*cor do texto do campo*/
+    -webkit-text-fill-color: #000000 !important;
+}
+
 .login-legend{
     padding: 0px 7px 0px 7px;
     margin-right: auto;

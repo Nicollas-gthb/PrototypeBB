@@ -1,11 +1,15 @@
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
 
 import "./Home.css"
 import { Header } from "../../components/header/Header"
-
+import { LogoutButton } from "../../components/logout/LogoutButton"
+import { AuthContext } from "../../contexts/AuthContext"
 
 export default function Home(){
     const navigate = useNavigate()
+
+    const { logout } = useContext(AuthContext)
 
     function handleCriarVagas(){
         navigate("/add_vaga")
@@ -19,9 +23,17 @@ export default function Home(){
         navigate(/*rota de editar vaga*/)
     }
 
+    function handleLogout(){
+        logout()
+        navigate("/")
+    }
+
     return(
         <>
+            
             <Header />
+
+            <LogoutButton onCLick={handleLogout} />
 
             <main id="home-background">
             

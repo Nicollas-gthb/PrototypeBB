@@ -48,6 +48,7 @@ export default function AddVaga(){
                 }
             })
             alert("Vaga foi criada com sucesso!")
+            navigate("/home")
         }catch(error){
             alert("Erro ao criar esta vaga!")
         }finally{
@@ -60,7 +61,7 @@ export default function AddVaga(){
         <>
             <Header />
 
-            <Back onClick={handlePrevious}/>
+            <Back onClick={handlePrevious} />
 
             <main id="add-background">
 

@@ -1,0 +1,32 @@
+#component-logout{
+    width: 100vw;
+    height: 70px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#component-logout-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    background-color: #e01a1a;
+    width: 7%;
+    height: 70%;
+    border: none;
+    border-radius: 9px;
+    margin: 0px 10px 0px 5px;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.component-logout-icon{
+    color: #000000;
+}
+
+#component-logout-text{
+    color: #000000;
+
+}
