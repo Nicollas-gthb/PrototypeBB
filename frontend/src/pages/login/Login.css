@@ -16,7 +16,7 @@
     padding: 10px;
 }
 
-.login-fieldset:-webkit-autofill{
+.login-input:-webkit-autofill{
     /*cor do background do campo*/
     -webkit-box-shadow: 0 0 0 30px #fbfab2 inset !important;
 

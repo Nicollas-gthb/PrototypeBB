@@ -6,6 +6,7 @@ import Login from "../pages/login/Login"
 import Home from "../pages/home/Home"
 import Register from "../pages/register/Register"
 import AddVaga from "../pages/addVaga/AddVaga"
+import ListVaga from "../pages/listVaga/listVaga"
 
 export default function AppRoutes(){
     const { token } = useContext(AuthContext)
@@ -27,6 +28,10 @@ export default function AppRoutes(){
 
                 <Route path="/add_vaga" element={
                     token ? <AddVaga /> : <Navigate to="/" />
+                }/>
+
+                <Route path="/list_vaga" element={
+                    <ListVaga />
                 }/>
             </Routes>
         </BrowserRouter>

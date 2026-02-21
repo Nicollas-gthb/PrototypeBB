@@ -16,7 +16,7 @@ export default function Home(){
     }
 
     function handleVerVagas(){
-        navigate(/*rota de ver vaga*/)
+        navigate("/list_vaga")
     }
 
     function handleEditarVagas(){
