@@ -50,7 +50,22 @@ export default function AddVaga(){
             alert("Vaga foi criada com sucesso!")
             navigate("/home")
         }catch(error){
-            alert("Erro ao criar esta vaga!")
+            
+            if(error.response){
+                const status = error.response.status
+                const mensagemBackend = error.response.data.detail
+                
+                if(status === 403){
+                    alert(`Ação invalida: ${mensagemBackend}`)
+                }else if(status === 401){
+                    alert("Sua seção expirou, faça login novamente!")
+                    navigate("/")
+                }else{
+                    alert("Erro ao criar esta vaga!")
+                }
+            }else{
+                alert("Não foi possível conectar ao servidor.")
+            }
         }finally{
             setLoading(false)
         }
