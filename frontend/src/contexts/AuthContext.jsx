@@ -6,10 +6,14 @@ export function AuthProvider({children}){
     const [token, setToken] = useState(
         localStorage.getItem("token") || null
     )
+    const [user, setUser] = useState(null)
 
-    function login(newToken){
+    function login(newToken, user){
         localStorage.setItem("token", newToken)
+        //stringify -> converte o objeto em uma string para ser salva no localStorage
+        localStorage.setItem("user", JSON.stringify(user))
         setToken(newToken)
+        setUser(user)
     }
 
     function logout(){
@@ -21,7 +25,7 @@ export function AuthProvider({children}){
         //auth context provider, disponibiliza 
         // o token e as funções de login e logout para os componentes filhos
         // esses filhos são todas as telas do app, pois o provider é usado no App.jsx
-        <AuthContext.Provider value={{ token, login, logout }}> 
+        <AuthContext.Provider value={{ token, user, login, logout }}> 
             {children}
         </AuthContext.Provider>
     )

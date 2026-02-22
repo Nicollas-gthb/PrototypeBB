@@ -63,7 +63,12 @@ async def login(
     
     return {
         "access_token": access_token,
-        "refresh_token": refresh_token
+        "refresh_token": refresh_token,
+        "token_type": "bearer",
+        "user": {
+            "username": usuario_existente.nome,
+            "admin": usuario_existente.admin
+        }
     }
 
 

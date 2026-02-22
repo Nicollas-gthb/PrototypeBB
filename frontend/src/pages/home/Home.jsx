@@ -10,9 +10,14 @@ export default function Home(){
     const navigate = useNavigate()
 
     const { logout } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     function handleCriarVagas(){
-        navigate("/add_vaga")
+        if(user.admin){
+            navigate("/add_vaga")
+        }else{
+            alert("Não é adm")
+        }
     }
 
     function handleVerVagas(){

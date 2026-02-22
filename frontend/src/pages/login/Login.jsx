@@ -16,13 +16,20 @@ export default function Login(){
     const [senha, setSenha] = useState("")
     const [loading, setLoading] = useState(false)
 
+    
+
     async function handleSubmit(e){
         e.preventDefault()
         setLoading(true)
 
+        let payload = {
+            email: email,
+            senha: senha
+        }
+
         try{
-            const response = await api.post("/auth/login", {email, senha})
-            login(response.data.access_token)
+            const response = await api.post("/auth/login", payload)
+            login(response.data.access_token, response.data.user)
         }catch(error){
             alert(error.response?.data?.detail || "Erro ao fazer login")
         }finally{

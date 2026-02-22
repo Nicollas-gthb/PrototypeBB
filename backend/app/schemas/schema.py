@@ -17,6 +17,9 @@ class UsuarioResponse(UsuarioSchema):
     class Config:
         from_attributes = True
 
+class UsuarioResponseFront(BaseModel):
+    username: str
+    admin: bool
 
 
 class CandidatoSchema(BaseModel):
@@ -88,3 +91,4 @@ class TokenSchema(BaseModel):
     access_token: str
     refresh_token: str
     token_type: str = "bearer"
+    user: UsuarioResponseFront
