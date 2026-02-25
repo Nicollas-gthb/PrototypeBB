@@ -31,3 +31,27 @@ async def criar_vaga(
     session.refresh(nova_vaga)
 
     return nova_vaga
+
+@vagas_router.get("/dashboard")
+async def listar_vagas(session: Session = Depends(get_session)):
+    
+    vagas = session.query(Vaga).all()
+
+    vagas_formatadas = []
+
+    for vaga in vagas:
+        vagas_formatadas.append({
+            "id": vaga.id,
+            "area": vaga.area,
+            "cargo": vaga.cargo,
+            "jornada": vaga.jornada,
+            "tipo": vaga.tipo,
+            "data_inicio": vaga.data_inicio,
+            "salario": vaga.salario,
+            "local": vaga.local,
+            "status": vaga.status,
+            "requisitos": vaga.requisitos,
+            "total_candidatos": len(vaga.candidaturas)
+        })
+
+    return vagas_formatadas

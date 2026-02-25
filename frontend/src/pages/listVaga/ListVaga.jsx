@@ -23,99 +23,53 @@ export default function ListVaga(){
 
                 <h1 id="list-background-titulo">Gerenciar vagas</h1>
 
-                <section id="vervagas">
+                <div id="list-vervagas">
 
                     <table>
                         <thead>
                             <tr>
-                                <th>Cargo / Vaga</th>
+                                <th className="th-esquerda">Cargo</th>
                                 <th>Área</th>
                                 <th>Candidatos</th>
                                 <th>Status</th>
-                                <th>Ações</th>
+                                <th className="th-direita">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <h2>Suporte de TI</h2>
-                                    <h3>Júnior • SP</h3>
-                                </td>
-                                <td>Tecnologia</td>
-                                <td>12 candidatos</td>
-                                <td>
-                                    <div class="status status-aberta">Aberta</div>
-                                </td>
-                                <td class="acoes">
-                                    <a title="Excluir"><img src="https://cdn-icons-png.flaticon.com/512/5675/5675840.png"
-                                            alt="lixeira" id="lixeira"/></a>
-                                    <a href="vaga.html" title="Visualizar/Outras ações">ℹ️</a>
-                                    <a class="btn-ver-candidatos" href="lista.html" title="Ver lista de candidatos">Ver
-                                        Candidatos</a>
-                                </td>
-                            </tr>
+                            {/* 
+                                Encaixar uma estrutura dinaminca 
+                                para se moldar conforme a quantidade de vagas
+                            */}
 
+                            {/*
                             <tr>
                                 <td>
-                                    <h2>Analista Financeiro</h2>
-                                    <h3>Pleno • DF</h3>
+                                    <h2> {vaga.cargo}
+                                    <h3> {`${vaga.tipo} - ${vaga.local}`}
                                 </td>
-                                <td>Financeiro</td>
-                                <td>45 candidatos</td>
+                                <td> {vaga.area} </td>
+                                <td> {vaga.total} </td>
+                                <td> <div> {status} </div> </td>
                                 <td>
-                                    <div class="status status-aberta">Aberta</div>
-                                </td>
-                                <td class="acoes">
-                                    <a title="Excluir"><img src="https://cdn-icons-png.flaticon.com/512/5675/5675840.png"
-                                            alt="lixeira" id="lixeira"/></a>
-                                    <a href="vaga.html" title="Visualizar/Outras ações">ℹ️</a>
-                                    <a class="btn-ver-candidatos" href="lista.html" title="Ver lista de candidatos">Ver
-                                        Candidatos</a>
+                                    <div>
+                                        <i>info
+                                    </div>
+                                    <Link to="">
+                                        <div>
+                                            <i>Lixeira
+                                        </div>
+                                    </Link>
+                                    <link to="">
+                                        <div>
+                                            Ver candidatos
+                                        </div>
+                                    </Link>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td>
-                                    <h2>Analista Financeiro</h2>
-                                    <h3>Pleno • DF</h3>
-                                </td>
-                                <td>Financeiro</td>
-                                <td>45 candidatos</td>
-                                <td>
-                                    <div class="status status-aberta">Aberta</div>
-                                </td>
-                                <td class="acoes">
-                                    <a title="Excluir"><img src="https://cdn-icons-png.flaticon.com/512/5675/5675840.png"
-                                            alt="lixeira" id="lixeira"/></a>
-                                    <a href="vaga.html" title="Visualizar/Outras ações">ℹ️</a>
-                                    <a class="btn-ver-candidatos" href="lista.html" title="Ver lista de candidatos">Ver
-                                        Candidatos</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <h2>Estagiário de RH</h2>
-                                    <h3>Estágio • MG</h3>
-                                </td>
-                                <td>Recursos Humanos</td>
-                                <td>89 candidatos</td>
-                                <td>
-                                    <div class="status status-encerrada">Encerrada</div>
-                                </td>
-                                <td class="acoes">
-                                    <a title="Excluir"><img src="https://cdn-icons-png.flaticon.com/512/5675/5675840.png"
-                                            alt="lixeira" id="lixeira"/></a>
-                                    <a href="vaga.html" title="Visualizar/Outras ações">ℹ️</a>
-                                    <a class="btn-ver-candidatos" href="lista.html" title="Ver lista de candidatos">Ver
-                                        Candidatos</a>
-                                </td>
-                            </tr>
+                            */}
                         </tbody>
                     </table>
-
-
-                </section>
+                </div>
             </main>
         </>
     )
