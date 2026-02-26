@@ -35,7 +35,7 @@ async def criar_vaga(
 @vagas_router.get("/dashboard")
 async def listar_vagas(session: Session = Depends(get_session)):
     
-    vagas = session.query(Vaga).all()
+    vagas = session.query(Vaga).options(joinedload(Vaga.candidaturas)).all()
 
     vagas_formatadas = []
 
