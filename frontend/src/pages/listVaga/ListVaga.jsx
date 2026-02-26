@@ -1,17 +1,26 @@
 import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
 
 import "./ListVaga.css"
 import { Header } from "../../components/header/Header";
 import { Back } from "../../components/back/Back"
+import { api } from "../../api/axios";
 
 
 export default function ListVaga(){
 
     const navigate = useNavigate()
+    const [vagas, setVagas] = useState([])
 
     function handlePrevious(){
         navigate("/home")
     }
+
+    useEffect(() => {
+        api.get("/vagas/dashboard").then(response => {
+            setVagas(response.data) 
+        }).catch(error => alert("Erro ao buscas as vagas: ", error))
+    }, [])
 
     return (
         <>
@@ -36,37 +45,31 @@ export default function ListVaga(){
                             </tr>
                         </thead>
                         <tbody>
-                            {/* 
-                                Encaixar uma estrutura dinaminca 
-                                para se moldar conforme a quantidade de vagas
-                            */}
-
-                            {/*
-                            <tr>
-                                <td>
-                                    <h2> {vaga.cargo}
-                                    <h3> {`${vaga.tipo} - ${vaga.local}`}
-                                </td>
-                                <td> {vaga.area} </td>
-                                <td> {vaga.total} </td>
-                                <td> <div> {status} </div> </td>
-                                <td>
-                                    <div>
-                                        <i>info
-                                    </div>
-                                    <Link to="">
-                                        <div>
-                                            <i>Lixeira
+                            {vagas.map(vaga => (
+                                <tr key={vaga.id} className="dash-linhas">
+                                    <td>
+                                        <div className="dash-div">
+                                            <p className="dash-cargo">{vaga.cargo}</p>
+                                            <p className="dash-tipo-local">{vaga.tipo} • {vaga.local}</p>
                                         </div>
-                                    </Link>
-                                    <link to="">
-                                        <div>
-                                            Ver candidatos
+                                    </td>
+                                    <td className="dash-area">{vaga.area}</td>
+                                    <td className="dash-total">{vaga.total_candidatos} cadidatos</td>
+                                    <td>
+                                        <div className="dash-status">
+                                            {vaga.status}
                                         </div>
-                                    </Link>
-                                </td>
-                            </tr>
-                            */}
+                                    </td>
+                                    <td className="dash-acoes">
+                                        <button className="dash-button">
+                                            <div id="dash-button-info"></div>
+                                        </button>
+                                        <button className="dash-button">
+                                            <div id="dash-button-edit"></div>
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
