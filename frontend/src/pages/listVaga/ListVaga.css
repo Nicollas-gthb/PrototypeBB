@@ -24,7 +24,7 @@
 }
 
 table {
-    width: 65vw;
+    width: 75vw;
     height: 60vh;
     border-collapse: collapse;
     border-radius: 16px;
@@ -47,11 +47,9 @@ td h2 {
 
 }
 
-td h3 {
-
+td{
     font-weight: 400;
     font-size: 0.9em;
-
 }
 
 th {
@@ -69,11 +67,84 @@ th {
     border-radius: 0 16px 0 0;
 }
 
-tr:hover {
+.td-esquerda{
+    border-radius: 0 0 0 16px;
+}
+
+.td-direita{
+    border-radius: 0 0 16px 0;
+}
+
+tr:hover{
     background-color: #cbcbcb;
 }
 
-.status {
+tr:hover .dash-button{
+    background-color: #cbcbcb;
+}
+
+.dash-div{
+    width: 70%;
+}
+
+.dash-cargo{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.dash-tipo-local{
+    font-size: 1.1em;
+}
+
+.dash-area{
+    font-size: 1.03em;
+}
+
+.dash-total{
+    font-size: 1.03em;
+    cursor: pointer;
+}
+
+.dash-status-aberta{
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 2px 2px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-status-encerrada{
+    background-color: #F44336;
+    color: #ffffff;
+    padding: 2px 2px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-button{
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #ffffff;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.bi-info-circle-fill{
+    color: black;
+    font-size: 25px;
+}
+
+.bi-pencil-square{
+    color: black;
+    font-size: 25px;
+}
+
+/* .status {
     display: inline-block;
     padding: 5px 10px;
     border-radius: 5px;
@@ -128,4 +199,4 @@ tr:hover {
 
     height: 19px;
 
-}
+} */

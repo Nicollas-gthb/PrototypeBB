@@ -47,7 +47,7 @@ export default function ListVaga(){
                         <tbody>
                             {vagas.map(vaga => (
                                 <tr key={vaga.id} className="dash-linhas">
-                                    <td>
+                                    <td className="td-esquerda">
                                         <div className="dash-div">
                                             <p className="dash-cargo">{vaga.cargo}</p>
                                             <p className="dash-tipo-local">{vaga.tipo} • {vaga.local}</p>
@@ -56,16 +56,23 @@ export default function ListVaga(){
                                     <td className="dash-area">{vaga.area}</td>
                                     <td className="dash-total">{vaga.total_candidatos} cadidatos</td>
                                     <td>
-                                        <div className="dash-status">
+                                        <div className={
+                                            vaga.status === "ABERTA" ? 
+                                            "dash-status-aberta" : "dash-status-encerrada"
+                                        }>
                                             {vaga.status}
                                         </div>
                                     </td>
-                                    <td className="dash-acoes">
+                                    <td className="dash-acoes td-direita">
                                         <button className="dash-button">
-                                            <div id="dash-button-info"></div>
+                                            <div id="dash-button-info">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </div>
                                         </button>
                                         <button className="dash-button">
-                                            <div id="dash-button-edit"></div>
+                                            <div id="dash-button-edit">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </div>
                                         </button>
                                     </td>
                                 </tr>
