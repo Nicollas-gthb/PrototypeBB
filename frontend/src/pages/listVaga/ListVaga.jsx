@@ -5,6 +5,7 @@ import "./ListVaga.css"
 import { Header } from "../../components/header/Header";
 import { Back } from "../../components/back/Back"
 import { api } from "../../api/axios";
+import { CandidatoModal } from "../../components/candidato/CandidatoModal";
 
 
 export default function ListVaga(){
@@ -22,7 +23,7 @@ export default function ListVaga(){
     useEffect(() => {
         api.get("/vagas/dashboard").then(response => {
             setVagas(response.data) 
-        }).catch(error => alert("Erro ao buscas as vagas: ", error))
+        }).catch(error => alert("Erro ao buscas as vagas: ", error.message))
     }, [])
 
     function handleCandidatos(vaga_id){
@@ -83,12 +84,12 @@ export default function ListVaga(){
                                     </td>
                                     <td className="dash-acoes td-direita">
                                         <button onClick={() => handleClickInfo(vaga.id)} className="dash-button">
-                                            <div id="dash-button-info">
+                                            <div className="dash-button">
                                                 <i class="bi bi-info-circle-fill"></i>
                                             </div>
                                         </button>
                                         <button onClick={() => handleClickEdit(vaga.id)} className="dash-button">
-                                            <div id="dash-button-edit">
+                                            <div className="dash-button">
                                                 <i class="bi bi-pencil-square"></i>
                                             </div>
                                         </button>
@@ -99,6 +100,13 @@ export default function ListVaga(){
                     </table>
                 </div>
             </main>
+
+            {modalCandidatosAberto && (
+                <CandidatoModal 
+                    vagaId={idVagaSelecionada}
+                    onClose={() => setModalCandidatosAberto(false)}
+                />
+            )}
         </>
     )
 }

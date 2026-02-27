@@ -105,6 +105,11 @@ tr:hover .dash-button{
     cursor: pointer;
 }
 
+.dash-total:hover{
+    text-decoration: underline;
+    color: #003DA5;
+}
+
 .dash-status-aberta{
     background-color: #4CAF50;
     color: #ffffff;
