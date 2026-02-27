@@ -12,7 +12,8 @@ export default function ListVaga(){
     const navigate = useNavigate()
     const [vagas, setVagas] = useState([])
     const [idVagaSelecionada, setidVagaSelecionada] = useState(null)
-    const [modalAberto, setModalAberto] = useState(false)
+    const [modalCandidatosAberto, setModalCandidatosAberto] = useState(false)
+    const [modalAcoesAberto, setModalAcoesAberto] = useState(false)
 
     function handlePrevious(){
         navigate("/home")
@@ -24,14 +25,19 @@ export default function ListVaga(){
         }).catch(error => alert("Erro ao buscas as vagas: ", error))
     }, [])
 
+    function handleCandidatos(vaga_id){
+        setidVagaSelecionada(vaga_id)
+        setModalCandidatosAberto(true)
+    }
+
     function handleClickInfo(vaga_id){
         setidVagaSelecionada(vaga_id)
-        setModalAberto(true)
+        setModalAcoesAberto(true)
     }
 
     function handleClickEdit(vaga_id){
         setidVagaSelecionada(vaga_id)
-        setModalAberto(true)
+        setModalAcoesAberto(true)
     }
 
     return (
@@ -66,7 +72,7 @@ export default function ListVaga(){
                                         </div>
                                     </td>
                                     <td className="dash-area">{vaga.area}</td>
-                                    <td className="dash-total">{vaga.total_candidatos} cadidatos</td>
+                                    <td onClick={() => handleCandidatos(vaga.id)} className="dash-total">{vaga.total_candidatos} cadidatos</td>
                                     <td>
                                         <div className={
                                             vaga.status === "ABERTA" ? 
