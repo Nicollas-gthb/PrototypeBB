@@ -11,6 +11,8 @@ export default function ListVaga(){
 
     const navigate = useNavigate()
     const [vagas, setVagas] = useState([])
+    const [idVagaSelecionada, setidVagaSelecionada] = useState(null)
+    const [modalAberto, setModalAberto] = useState(false)
 
     function handlePrevious(){
         navigate("/home")
@@ -21,6 +23,16 @@ export default function ListVaga(){
             setVagas(response.data) 
         }).catch(error => alert("Erro ao buscas as vagas: ", error))
     }, [])
+
+    function handleClickInfo(vaga_id){
+        setidVagaSelecionada(vaga_id)
+        setModalAberto(true)
+    }
+
+    function handleClickEdit(vaga_id){
+        setidVagaSelecionada(vaga_id)
+        setModalAberto(true)
+    }
 
     return (
         <>
@@ -64,12 +76,12 @@ export default function ListVaga(){
                                         </div>
                                     </td>
                                     <td className="dash-acoes td-direita">
-                                        <button className="dash-button">
+                                        <button onClick={() => handleClickInfo(vaga.id)} className="dash-button">
                                             <div id="dash-button-info">
                                                 <i class="bi bi-info-circle-fill"></i>
                                             </div>
                                         </button>
-                                        <button className="dash-button">
+                                        <button onClick={() => handleClickEdit(vaga.id)} className="dash-button">
                                             <div id="dash-button-edit">
                                                 <i class="bi bi-pencil-square"></i>
                                             </div>
