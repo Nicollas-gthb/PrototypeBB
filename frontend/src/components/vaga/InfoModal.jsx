@@ -11,7 +11,7 @@ export const InfoModal = ({ vaga, onClose}) => {
 
     return (
         <div id="vaga-info-background" onClick={handleOutSideClick}>
-
+            teste
         </div>
     )
 }
