@@ -33,11 +33,6 @@ export default function ListVaga(){
         setModalCandidatosAberto(true)
     }
 
-    function handleClickInfo(vaga_id){
-        setidVagaSelecionada(vaga_id)
-        setModalAcoesAberto(true)
-    }
-
     function handleClickEdit(vaga_id){
         setidVagaSelecionada(vaga_id)
         setModalAcoesAberto(true)
@@ -86,7 +81,7 @@ export default function ListVaga(){
                                     </td>
                                     <td className="dash-acoes td-direita">
                                         <button onClick={() => {
-                                            handleClickInfo(vaga.id)
+                                            setModalAcoesAberto(true)
                                             setVagaSelecionada(vaga)
                                         }} className="dash-button">
                                             <div className="dash-button">
