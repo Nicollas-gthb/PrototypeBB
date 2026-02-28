@@ -13,6 +13,38 @@
     justify-content: center;
 }
 
-.vaga-info-main{
+#vaga-info-main{
     background-color: white;
+    width: 75vw;
+    height: 60vh;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+#vaga-info-close-button{
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    width: 7%;
+    margin-left: auto;
+    border-radius: 0 16px 0 0;
+    padding: 5px 0;
+    transition: 0.5s;
+}
+
+#vaga-info-close-button:hover{
+    background-color: #F44336;
+}
+
+#vaga-info-close-button:hover .bi-x-circle{
+    color: #ffffff;
+}
+
+#vaga-info-titulo{
+    color: #003DA5;
+}
+
+.vaga-info-content{
+    color: #000000;
 }
