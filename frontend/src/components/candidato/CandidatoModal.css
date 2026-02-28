@@ -83,3 +83,26 @@
     width: 20%;
 }
 
+.candidato-status-contratado{
+    background-color: #4CAF50;
+    color: #ffffff;
+    border-radius: 7px;
+    padding: 5px;
+    width: 20%;
+}
+
+.candidato-status-pendente{
+    background-color: #F5B041;
+    color: #000000;
+    border-radius: 7px;
+    padding: 5px;
+    width: 20%;
+}
+
+.candidato-status-rejeitado{
+    background-color: #F44336;
+    color: #ffffff;
+    border-radius: 7px;
+    padding: 5px;
+    width: 20%;
+}
