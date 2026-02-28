@@ -6,6 +6,7 @@ import { Header } from "../../components/header/Header";
 import { Back } from "../../components/back/Back"
 import { api } from "../../api/axios";
 import { CandidatoModal } from "../../components/candidato/CandidatoModal";
+import { InfoModal } from "../../components/vaga/InfoModal";
 
 
 export default function ListVaga(){
@@ -13,6 +14,7 @@ export default function ListVaga(){
     const navigate = useNavigate()
     const [vagas, setVagas] = useState([])
     const [idVagaSelecionada, setidVagaSelecionada] = useState(null)
+    const [vagaSelecionada, setVagaSelecionada] = useState(null)
     const [modalCandidatosAberto, setModalCandidatosAberto] = useState(false)
     const [modalAcoesAberto, setModalAcoesAberto] = useState(false)
 
@@ -83,12 +85,18 @@ export default function ListVaga(){
                                         </div>
                                     </td>
                                     <td className="dash-acoes td-direita">
-                                        <button onClick={() => handleClickInfo(vaga.id)} className="dash-button">
+                                        <button onClick={() => {
+                                            handleClickInfo(vaga.id)
+                                            setVagaSelecionada(vaga)
+                                        }} className="dash-button">
                                             <div className="dash-button">
                                                 <i className="bi bi-info-circle-fill"></i>
                                             </div>
                                         </button>
-                                        <button onClick={() => handleClickEdit(vaga.id)} className="dash-button">
+                                        <button onClick={() => {
+                                            handleClickEdit(vaga.id)
+                                            setVagaSelecionada(vaga)
+                                        }} className="dash-button">
                                             <div className="dash-button">
                                                 <i className="bi bi-pencil-square"></i>
                                             </div>
@@ -107,6 +115,15 @@ export default function ListVaga(){
                     onClose={() => setModalCandidatosAberto(false)}
                 />
             )}
+
+            {modalAcoesAberto && (
+                <InfoModal 
+                    vagaList={vagaSelecionada}
+                    onClose={() => setModalAcoesAberto(false)}
+                />
+            )}
+
+            {/* {modalAcoesAberto && ()} */}
         </>
     )
 }
