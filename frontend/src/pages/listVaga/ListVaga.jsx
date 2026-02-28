@@ -85,12 +85,12 @@ export default function ListVaga(){
                                     <td className="dash-acoes td-direita">
                                         <button onClick={() => handleClickInfo(vaga.id)} className="dash-button">
                                             <div className="dash-button">
-                                                <i class="bi bi-info-circle-fill"></i>
+                                                <i className="bi bi-info-circle-fill"></i>
                                             </div>
                                         </button>
                                         <button onClick={() => handleClickEdit(vaga.id)} className="dash-button">
                                             <div className="dash-button">
-                                                <i class="bi bi-pencil-square"></i>
+                                                <i className="bi bi-pencil-square"></i>
                                             </div>
                                         </button>
                                     </td>
