@@ -14,6 +14,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 export default function ListVaga(){
 
     const { user } = useContext(AuthContext)
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const navigate = useNavigate()
     const [vagas, setVagas] = useState([])
@@ -91,10 +92,11 @@ export default function ListVaga(){
                                             </div>
                                         </button>
 
-                                        {user?.admin && (
+                                        {!isAdmin && (
                                             <>
                                                 <button onClick={() => {
                                                     setModalEditAberto(true)
+                                                    setVagaSelecionada(vaga)
                                                 }} className="dash-button">
                                                     <div className="dash-button">
                                                         <i className="bi bi-pencil-square"></i>
@@ -127,6 +129,7 @@ export default function ListVaga(){
 
             {modalEditAberto && (
                 <EditModal
+                    vaga={vagaSelecionada}
                     onClose={() => setModalEditAberto(false)} 
                 />
             )}
