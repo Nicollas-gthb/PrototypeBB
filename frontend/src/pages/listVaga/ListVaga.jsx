@@ -32,12 +32,7 @@ export default function ListVaga(){
             setVagas(response.data) 
         }).catch(error => alert("Erro ao buscas as vagas: ", error.message))
     }, [])
-
-    function handleCandidatos(vaga_id){
-        setidVagaSelecionada(vaga_id)
-        setModalCandidatosAberto(true)
-    }
-
+   
     return (
         <>
             <Header />
@@ -95,13 +90,19 @@ export default function ListVaga(){
                                                 <i className="bi bi-info-circle-fill"></i>
                                             </div>
                                         </button>
-                                        <button onClick={() => {
-                                            setModalEditAberto(true)
-                                        }} className="dash-button">
-                                            <div className="dash-button">
-                                                <i className="bi bi-pencil-square"></i>
-                                            </div>
-                                        </button>
+
+                                        {user?.admin && (
+                                            <>
+                                                <button onClick={() => {
+                                                    setModalEditAberto(true)
+                                                }} className="dash-button">
+                                                    <div className="dash-button">
+                                                        <i className="bi bi-pencil-square"></i>
+                                                    </div>
+                                                </button>
+                                            </>
+                                        )}
+                                        
                                     </td>
                                 </tr>
                             ))}

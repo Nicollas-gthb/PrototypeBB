@@ -92,3 +92,6 @@ class TokenSchema(BaseModel):
     refresh_token: str
     token_type: str = "bearer"
     user: UsuarioResponseFront
+
+    class Config:
+        from_attributes = True
