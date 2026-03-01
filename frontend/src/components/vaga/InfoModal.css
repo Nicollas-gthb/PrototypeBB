@@ -45,6 +45,17 @@
     color: #003DA5;
 }
 
+#vaga-info-container{
+    
+}
+
 .vaga-info-content{
     color: #000000;
+    font-size: 1.3em;
+}
+
+#vaga-info-cima{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

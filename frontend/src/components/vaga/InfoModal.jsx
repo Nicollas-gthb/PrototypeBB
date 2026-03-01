@@ -25,32 +25,57 @@ export const InfoModal = ({ vagaList, onClose }) => {
                         <div id="vaga-info-container">
                             <div id="vaga-info-cima">
                                 <div id="vaga-info-direita">
-                                    <p className="vaga-info-content">
-                                        {vagaList.cargo}
-                                    </p>
-                                    <p className="vaga-info-content">
-                                        {vagaList.tipo}
-                                    </p>
-                                    <p className="vaga-info-content">
-                                        {vagaList.jornada}
-                                    </p>
+                                    <fieldset className="vaga-info-fieldset">
+                                        <legend className="vaga-info-legend"></legend>
+                                        <p className="vaga-info-content">
+                                            {vagaList.cargo}
+                                        </p>
+                                    </fieldset>
+
+                                    <fieldset className="vaga-info-fieldset">
+                                        <legend className="vaga-info-legend"></legend>
+                                        <p className="vaga-info-content">
+                                            {vagaList.tipo}
+                                        </p>
+                                    </fieldset>
+
+                                    <fieldset className="vaga-info-fieldset">
+                                        <legend className="vaga-info-legend"></legend>
+                                        <p className="vaga-info-content">
+                                            {vagaList.jornada}
+                                        </p>
+                                    </fieldset>
                                 </div>
                                 <div id="vaga-info-esquerda">
-                                    <p className="vaga-info-content">
-                                        {vagaList.local}
-                                    </p>
-                                    <p className="vaga-info-content">
-                                        {vagaList.salario}
-                                    </p>
-                                    <p className="vaga-info-content">
-                                        {vagaList.data_inicio}
-                                    </p>
+                                    <fieldset className="vaga-info-fieldset">
+                                        <legend className="vaga-info-legend"></legend>
+                                        <p className="vaga-info-content">
+                                            {vagaList.local}
+                                        </p>
+                                    </fieldset>
+
+                                    <fieldset className="vaga-info-fieldset">
+                                        <legend className="vaga-info-legend"></legend>
+                                        <p className="vaga-info-content">
+                                            {vagaList.salario}
+                                        </p>
+                                    </fieldset>
+
+                                    <fieldset className="vaga-info-fieldset">
+                                        <legend className="vaga-info-legend"></legend>
+                                        <p className="vaga-info-content">
+                                            {vagaList.data_inicio}
+                                        </p>
+                                    </fieldset>
                                 </div>
                             </div>
                             <div id="vaga-info-baixo">
-                                <p className="vaga-info-content">
-                                    {vagaList.requisitos}
-                                </p>
+                                <fieldset className="vaga-info-fieldset">
+                                    <legend className="vaga-info-legend"></legend>
+                                    <p className="vaga-info-content">
+                                        {vagaList.requisitos}
+                                    </p>
+                                </fieldset>
                             </div>
                         </div>
                     </>
