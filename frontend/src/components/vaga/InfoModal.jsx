@@ -74,7 +74,9 @@ export const InfoModal = ({ vagaList, onClose }) => {
                                     <legend className="vaga-info-legend">Requisitos</legend>
                                     <p className="vaga-info-content">
                                         {vagaList.requisitos}
-                                        {/* <textarea name="|" id="|">{vagaList.requisitos}</textarea> */}
+                                        {/* <textarea name="|" id="vaga-info-textarea">
+                                            {vagaList.requisitos}
+                                        </textarea> */}
                                     </p>
                                 </fieldset>
                             </div>

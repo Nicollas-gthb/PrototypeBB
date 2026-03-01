@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import "./ListVaga.css"
 import { Header } from "../../components/header/Header";
@@ -7,16 +7,21 @@ import { Back } from "../../components/back/Back"
 import { api } from "../../api/axios";
 import { CandidatoModal } from "../../components/candidato/CandidatoModal";
 import { InfoModal } from "../../components/vaga/InfoModal";
+import { EditModal } from "../../components/vaga/EditModal";
+import { AuthContext } from "../../contexts/AuthContext";
 
 
 export default function ListVaga(){
+
+    const { user } = useContext(AuthContext)
 
     const navigate = useNavigate()
     const [vagas, setVagas] = useState([])
     const [idVagaSelecionada, setidVagaSelecionada] = useState(null)
     const [vagaSelecionada, setVagaSelecionada] = useState(null)
     const [modalCandidatosAberto, setModalCandidatosAberto] = useState(false)
-    const [modalAcoesAberto, setModalAcoesAberto] = useState(false)
+    const [modalInfoAberto, setModalInfoAberto] = useState(false)
+    const [modalEditAberto, setModalEditAberto] = useState(false)
 
     function handlePrevious(){
         navigate("/home")
@@ -31,11 +36,6 @@ export default function ListVaga(){
     function handleCandidatos(vaga_id){
         setidVagaSelecionada(vaga_id)
         setModalCandidatosAberto(true)
-    }
-
-    function handleClickEdit(vaga_id){
-        setidVagaSelecionada(vaga_id)
-        setModalAcoesAberto(true)
     }
 
     return (
@@ -69,8 +69,14 @@ export default function ListVaga(){
                                             <p className="dash-tipo-local">{vaga.tipo} • {vaga.local}</p>
                                         </div>
                                     </td>
+
                                     <td className="dash-area">{vaga.area}</td>
-                                    <td onClick={() => handleCandidatos(vaga.id)} className="dash-total">{vaga.total_candidatos} cadidatos</td>
+
+                                    <td onClick={() => {
+                                        setidVagaSelecionada(vaga.id)
+                                        setModalCandidatosAberto(true)
+                                    }} className="dash-total">{vaga.total_candidatos} cadidatos</td>
+
                                     <td>
                                         <div className={
                                             vaga.status === "ABERTA" ? 
@@ -79,9 +85,10 @@ export default function ListVaga(){
                                             {vaga.status}
                                         </div>
                                     </td>
+                                    
                                     <td className="dash-acoes td-direita">
                                         <button onClick={() => {
-                                            setModalAcoesAberto(true)
+                                            setModalInfoAberto(true)
                                             setVagaSelecionada(vaga)
                                         }} className="dash-button">
                                             <div className="dash-button">
@@ -89,8 +96,7 @@ export default function ListVaga(){
                                             </div>
                                         </button>
                                         <button onClick={() => {
-                                            handleClickEdit(vaga.id)
-                                            setVagaSelecionada(vaga)
+                                            setModalEditAberto(true)
                                         }} className="dash-button">
                                             <div className="dash-button">
                                                 <i className="bi bi-pencil-square"></i>
@@ -111,14 +117,18 @@ export default function ListVaga(){
                 />
             )}
 
-            {modalAcoesAberto && (
+            {modalInfoAberto && (
                 <InfoModal 
                     vagaList={vagaSelecionada}
-                    onClose={() => setModalAcoesAberto(false)}
+                    onClose={() => setModalInfoAberto(false)}
                 />
             )}
 
-            {/* {modalAcoesAberto && ()} */}
+            {modalEditAberto && (
+                <EditModal
+                    onClose={() => setModalEditAberto(false)} 
+                />
+            )}
         </>
     )
 }

@@ -58,6 +58,7 @@
 .vaga-info-content{
     color: #000000;
     font-size: 1.3em;
+    margin-bottom: 5px;
 }
 
 #vaga-info-cima{
@@ -93,4 +94,18 @@
     font-size: 1.1em;
     font-weight: 700;
     padding: 0 10px;
+}
+
+#vaga-info-textarea{
+    max-width: fit-content;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    background-color: #ffffff;
+    border: none;
+    font: inherit;
+    text-align: center;
+
 }

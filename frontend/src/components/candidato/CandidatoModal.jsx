@@ -15,7 +15,7 @@ export const CandidatoModal = ({ vagaId, onClose }) => {
                 setDados(response.data)
                 setLoading(false)
             }).catch(error => {
-                alert(`Erro ao buscar os candidatos da vaga ${vagaId}: `, error.message)
+                alert(`Erro ao buscar os candidatos da vaga ${vagaId}: ${error.message}`)
                 setLoading(false)
             })
         }
