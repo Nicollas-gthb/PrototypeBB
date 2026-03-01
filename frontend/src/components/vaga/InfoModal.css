@@ -46,7 +46,13 @@
 }
 
 #vaga-info-container{
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 5px;
 }
 
 .vaga-info-content{
@@ -58,4 +64,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 90%;
+    gap: 10px;   
+}
+
+#vaga-info-direita{
+    width: 49%;
+}
+
+#vaga-info-esquerda{
+    width: 49%;
+}
+
+
+#vaga-info-baixo{
+    width: 90%;
+}
+
+.vaga-info-fieldset{
+    border: 2px solid #003DA5;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.vaga-info-legend{
+    color: #003DA5;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 0 10px;
 }
