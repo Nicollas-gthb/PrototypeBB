@@ -64,7 +64,7 @@ export const InfoModal = ({ vagaList, onClose }) => {
                                     <fieldset className="vaga-info-fieldset">
                                         <legend className="vaga-info-legend">Data de Inicio</legend>
                                         <p className="vaga-info-content">
-                                            {vagaList.data_inicio}
+                                            {(vagaList.data_inicio).split("-").reverse().join("/")}
                                         </p>
                                     </fieldset>
                                 </div>
