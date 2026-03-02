@@ -1,8 +1,11 @@
-import { use, useState } from "react";
+import { use, useContext, useState } from "react";
 import "./EditModal.css"
+import { api } from "../../api/axios";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export const EditModal = ({ vaga, onClose }) => {
 
+    const { token } = useContext(AuthContext)
     const [loading, setLoading] = useState(false)
     
     const [area, setArea] = useState("")
@@ -21,8 +24,30 @@ export const EditModal = ({ vaga, onClose }) => {
         }
     }
 
-    function handleSubmitEdit(e){
-        // e.prevent.deafult()
+    async function handleSubmitEdit(e){
+        e.prevent.deafult()
+
+        try{
+            const payload = {
+                area: area,
+                cargo: cargo,
+                jornada: parseInt(jornada),
+                tipo: tipo,
+                data_inicio: data_inicio,
+                salario: parseFloat(salario),
+                local: local,
+                status: status.toUpperCase(),
+                requisitos: requisitos
+            }
+
+            await api.patch(`${vaga.id}/edit`, payload, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+        }catch(error){
+            alert("Erro ao atualizar os dados dessa vaga")
+        }
     }
 
     return (
