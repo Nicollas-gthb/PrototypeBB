@@ -86,3 +86,34 @@ async def listar_candidatos_vaga(vaga_id: int, session: Session = Depends(get_se
         "vaga": vaga_formatada,
         "candidatos": candidatos
     }
+
+
+@vagas_router.patch("/{vaga_id}/edit")
+async def editar(
+        vaga_id: int,
+        dados: VagaCreate,
+        session: Session = Depends(get_session),
+        usuario_atual: Usuario = Depends(get_usuario_admin)
+    ):
+
+    vaga_buscada = session.query(Vaga).filter(Vaga.id == vaga_id).first()
+
+    if not vaga_buscada:
+        raise HTTPException(status_code=404, detail="Vaga de destino não encontrada")
+    
+    #vira um dicionario/array
+    update_data = dados.model_dump(exclude_unset=True)
+
+    #loop que itera sobre o dicionario preenchendo os atributos
+    for key, value in update_data.items():
+        setattr(vaga_buscada, key, value)
+    
+
+    try:
+        session.commit()
+        session.refresh(vaga_buscada)
+    except Exception as e:
+        session.rollback()
+        raise HTTPException(status_code=500, detail="Erro ao atualizar banco de dados")
+
+    return vaga_buscada
