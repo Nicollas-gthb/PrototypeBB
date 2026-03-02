@@ -49,6 +49,7 @@ export default function AddVaga(){
             })
             alert("Vaga foi criada com sucesso!")
             navigate("/home")
+            
         }catch(error){
             
             if(error.response){

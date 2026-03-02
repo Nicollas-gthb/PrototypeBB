@@ -1,4 +1,5 @@
-import { use, useContext, useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom"
 import "./EditModal.css"
 import { api } from "../../api/axios";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -6,6 +7,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 export const EditModal = ({ vaga, onClose }) => {
 
     const { token } = useContext(AuthContext)
+    const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     
     const [area, setArea] = useState("")
@@ -26,6 +28,7 @@ export const EditModal = ({ vaga, onClose }) => {
 
     async function handleSubmitEdit(e){
         e.prevent.deafult()
+        setLoading(true)
 
         try{
             const payload = {
@@ -40,13 +43,33 @@ export const EditModal = ({ vaga, onClose }) => {
                 requisitos: requisitos
             }
 
-            await api.patch(`${vaga.id}/edit`, payload, {
+            const response = await api.patch(`${vaga.id}/edit`, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             })
+            alert("Atualização enviada com sucesso!")
+            navigate("/home")
+
         }catch(error){
-            alert("Erro ao atualizar os dados dessa vaga")
+
+            if(error.response){
+                const status = error.response.status
+                const mensagemBackend = error.response.data.detail
+                
+                if(status === 403){
+                    alert(`Ação invalida: ${mensagemBackend}`)
+                }else if(status === 401){
+                    alert("Sua seção expirou, faça login novamente!")
+                    navigate("/")
+                }else{
+                    alert("Erro ao atualizar esta vaga!")
+                }
+            }else{
+                alert("Não foi possível conectar ao servidor.")
+            }
+        }finally{
+            setLoading(false)
         }
     }
 
