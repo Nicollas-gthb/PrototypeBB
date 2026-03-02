@@ -9,6 +9,7 @@ import { CandidatoModal } from "../../components/candidato/CandidatoModal";
 import { InfoModal } from "../../components/vaga/InfoModal";
 import { EditModal } from "../../components/vaga/EditModal";
 import { AuthContext } from "../../contexts/AuthContext";
+import { LoadingScreen } from "../../components/loading/LoadingScreen";
 
 
 export default function ListVaga(){
@@ -29,7 +30,7 @@ export default function ListVaga(){
     }
 
     if(loading){
-        return <div className="loading-screen">Carregando Permissões</div>
+        return <LoadingScreen>Carregando Permissões ...</LoadingScreen>
     }
 
     useEffect(() => {
