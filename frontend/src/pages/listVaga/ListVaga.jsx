@@ -13,8 +13,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 export default function ListVaga(){
 
-    const { user } = useContext(AuthContext)
-    const [isAdmin, setIsAdmin] = useState(false)
+    const { user, loading } = useContext(AuthContext)
+    
 
     const navigate = useNavigate()
     const [vagas, setVagas] = useState([])
@@ -26,6 +26,10 @@ export default function ListVaga(){
 
     function handlePrevious(){
         navigate("/home")
+    }
+
+    if(loading){
+        return <div className="loading-screen">Carregando Permissões</div>
     }
 
     useEffect(() => {
@@ -92,7 +96,7 @@ export default function ListVaga(){
                                             </div>
                                         </button>
 
-                                        {!isAdmin && (
+                                        { user?.admin && (
                                             <>
                                                 <button onClick={() => {
                                                     setModalEditAberto(true)
