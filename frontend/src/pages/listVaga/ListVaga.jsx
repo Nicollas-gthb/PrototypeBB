@@ -20,7 +20,7 @@ export default function ListVaga(){
     const navigate = useNavigate()
     const [vagas, setVagas] = useState([])
     const [idVagaSelecionada, setidVagaSelecionada] = useState(null)
-    const [vagaSelecionada, setVagaSelecionada] = useState(null)
+    const [vagaSelecionada, setVagaSelecionada] = useState({})
     const [modalCandidatosAberto, setModalCandidatosAberto] = useState(false)
     const [modalInfoAberto, setModalInfoAberto] = useState(false)
     const [modalEditAberto, setModalEditAberto] = useState(false)
@@ -29,16 +29,17 @@ export default function ListVaga(){
         navigate("/home")
     }
 
-    if(loading){
-        return <LoadingScreen>Carregando Permissões ...</LoadingScreen>
-    }
-
+    
     useEffect(() => {
         api.get("/vagas/dashboard").then(response => {
             setVagas(response.data) 
         }).catch(error => alert("Erro ao buscas as vagas: ", error.message))
     }, [])
-   
+    
+    if(loading){
+        return <LoadingScreen>Carregando Permissões ...</LoadingScreen>
+    }
+    
     return (
         <>
             <Header />

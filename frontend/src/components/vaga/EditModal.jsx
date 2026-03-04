@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom"
+
 import "./EditModal.css"
 import { api } from "../../api/axios";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -10,27 +11,31 @@ export const EditModal = ({ vaga, onClose }) => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
     
-    const [area, setArea] = useState("")
-    const [cargo, setCargo] = useState("")
-    const [tipo, setTipo] = useState("")
-    const [jornada, setJornada] = useState("")
-    const [data_inicio, setDataInicio] = useState("")
-    const [salario, setSalario] = useState("")
-    const [local, setLocal] = useState("")
-    const [status, setStatus] = useState("")
-    const [requisitos, setRequisitos] = useState("")
-
+    const [id, setId] = useState(vaga.id)
+    const [area, setArea] = useState(vaga.area)
+    const [cargo, setCargo] = useState(vaga.cargo)
+    const [tipo, setTipo] = useState(vaga.tipo)
+    const [jornada, setJornada] = useState(vaga.jornada)
+    const [data_inicio, setDataInicio] = useState(vaga.data_inicio)
+    const [salario, setSalario] = useState(vaga.salario)
+    const [local, setLocal] = useState(vaga.local)
+    const [status, setStatus] = useState(vaga.status)
+    const [requisitos, setRequisitos] = useState(vaga.requisitos)
+    
+    
     const handleOutSideClick = (e) => {
         if(e.target.id === "vaga-edit-background"){
             onClose()
         }
     }
 
+    
     async function handleSubmitEdit(e){
-        e.prevent.deafult()
+        e.preventDefault()
         setLoading(true)
 
         try{
+
             const payload = {
                 area: area,
                 cargo: cargo,
@@ -43,7 +48,7 @@ export const EditModal = ({ vaga, onClose }) => {
                 requisitos: requisitos
             }
 
-            const response = await api.patch(`${vaga.id}/edit`, payload, {
+            await api.patch(`vagas/${id}/edit`, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -89,8 +94,8 @@ export const EditModal = ({ vaga, onClose }) => {
                                     <fieldset className="vaga-edit-fieldset">
                                         <legend className="vaga-edit-legend">Area</legend>
                                         <input className="vaga-edit-input"
-                                            id="area"
-                                            name="area"
+                                            id="edit-area"
+                                            
                                             value={area}
                                             onChange={e => setArea(e.target.value)}
                                             type="text" 
@@ -101,8 +106,8 @@ export const EditModal = ({ vaga, onClose }) => {
                                     <fieldset className="vaga-edit-fieldset">
                                         <legend className="vaga-edit-legend">Cargo</legend>
                                         <input className="vaga-edit-input"
-                                            id="cargo"
-                                            name="cargo"
+                                            id="edit-cargo"
+                                            
                                             value={cargo}
                                             onChange={e => setCargo(e.target.value)}
                                             type="text" 
@@ -113,8 +118,8 @@ export const EditModal = ({ vaga, onClose }) => {
                                     <fieldset className="vaga-edit-fieldset">
                                         <legend className="vaga-edit-legend">Tipo</legend>
                                         <input className="vaga-edit-input"
-                                            id="tipo"
-                                            name="tipo" 
+                                            id="edit-tipo"
+                                             
                                             value={tipo}
                                             onChange={e => setTipo(e.target.value)}
                                             type="text" 
@@ -125,8 +130,8 @@ export const EditModal = ({ vaga, onClose }) => {
                                     <fieldset className="vaga-edit-fieldset">
                                         <legend className="vaga-edit-legend">Jornada</legend>
                                         <input className="vaga-edit-input"
-                                            id="jornada"
-                                            name="jornada" 
+                                            id="edit-jornada"
+                                             
                                             value={jornada}
                                             onChange={e => setJornada(e.target.value)}
                                             type="number" 
@@ -135,23 +140,36 @@ export const EditModal = ({ vaga, onClose }) => {
                                     </fieldset>
                                 </div>
                                 <div id="vaga-edit-esquerda">
-                                    <fieldset className="vaga-edit-fieldset">
+                                    <fieldset id="edit-field-status" className="vaga-edit-fieldset">
                                         <legend className="vaga-edit-legend">Status</legend>
-                                        <input className="vaga-edit-input"
-                                            id="status"
-                                            name="status"
-                                            value={status}
-                                            onChange={e => setStatus(e.target.value)} 
-                                            type="text" 
-                                            placeholder={vaga.status} 
-                                        />
+                                        
+                                        <div 
+                                            id={
+                                                status === "ABERTA" ?
+                                                "edit-status-aberta-on":
+                                                "edit-status-aberta-off"
+                                            }
+                                            className="vaga-edit-button"
+                                            onClick={() => setStatus("ABERTA")}
+                                        >Aberta</div>
+                                        
+                                        <div 
+                                            id={
+                                                status === "ENCERRADA" ?
+                                                "edit-status-encerrada-on":
+                                                "edit-status-encerrada-off"
+                                            } 
+                                            className="vaga-edit-button"
+                                            onClick={() => setStatus("ENCERRADA")}
+                                        >Encerrada</div>
+
                                     </fieldset>
 
                                     <fieldset className="vaga-edit-fieldset">
                                         <legend className="vaga-edit-legend">Local</legend>
                                         <input className="vaga-edit-input"
-                                            id="local"
-                                            name="local"
+                                            id="edit-local"
+                                            
                                             value={local}
                                             onChange={e => setLocal(e.target.value)} 
                                             type="text" 
@@ -162,8 +180,8 @@ export const EditModal = ({ vaga, onClose }) => {
                                     <fieldset className="vaga-edit-fieldset">
                                         <legend className="vaga-edit-legend">Salario</legend>
                                         <input className="vaga-edit-input"
-                                            id="salario" 
-                                            name="salario"
+                                            id="edit-salario" 
+                                            
                                             value={salario}
                                             onChange={e => setSalario(e.target.value)}
                                             type="number" 
@@ -174,8 +192,8 @@ export const EditModal = ({ vaga, onClose }) => {
                                     <fieldset className="vaga-edit-fieldset">
                                         <legend className="vaga-edit-legend">Data de Inicio</legend>
                                         <input className="vaga-edit-input"
-                                            id="add-data"
-                                            name="data_inicio"
+                                            id="edit-add-data"
+                                            
                                             value={data_inicio}
                                             onChange={e => setDataInicio(e.target.value)}
                                             type="date" 
@@ -188,8 +206,8 @@ export const EditModal = ({ vaga, onClose }) => {
                                 <fieldset className="vaga-edit-fieldset">
                                     <legend className="vaga-edit-legend">Requisitos</legend>
                                     <input className="vaga-edit-input"
-                                        id="add-requisitos-input"
-                                        name="requisito" 
+                                        id="edit-requisitos-input"
+                                         
                                         value={requisitos}
                                         onChange={e => setRequisitos(e.target.value)}
                                         type="text"
@@ -197,15 +215,16 @@ export const EditModal = ({ vaga, onClose }) => {
                                     />
                                 </fieldset>
 
-                                <button 
-                                    type="submit"
-                                    className="add-submit-button"
-                                    disabled={loading}
-                                >
-                                    {loading ? "Carregando..." : "Enviar atualização"}
-                                </button>
                             </div>
                         </div>
+
+                        <button 
+                            type="submit"
+                            id="edit-submit-button"
+                            className="add-submit-button"
+                            disabled={loading}
+                        >{loading ? "Carregando..." : "Enviar atualização"}</button>
+                        
                 </form>
             </div>
         </div>

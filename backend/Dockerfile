@@ -1,8 +1,8 @@
-#Imagem Python oficial 
+# Imagem Python oficial 
 FROM python:3.14-slim
 
-#Diretorio onde codigo vai rodar dentro do container
-#Docker cria a pasta se não existir, a partir de onde o dockerfile estiver
+# Diretorio onde codigo vai rodar dentro do container
+# Docker cria a pasta se não existir, a partir de onde o dockerfile estiver
 WORKDIR /app
 
 # Instala dependências do sistema necessárias para pacotes Python (como bcrypt)

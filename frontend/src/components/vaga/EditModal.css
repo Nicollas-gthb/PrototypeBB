@@ -66,6 +66,26 @@
     outline: none;
 }
 
+/*Mexe no auto fill de um campo*/
+.vaga-edit-input:-webkit-autofill{
+    /*cor do background do campo*/
+    -webkit-box-shadow: 0 0 0 30px #fbfab2 inset !important;
+
+    /*cor do texto do campo*/
+    -webkit-text-fill-color: #000000 !important;
+}
+
+.vaga-edit-input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+            /*brightness(50%)
+            sepia(100%)
+            saturate(10000%)
+            hue-rotate(180deg)*/
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
 #vaga-edit-cima{
     display: flex;
     align-items: center;
@@ -99,4 +119,42 @@
     font-size: 1.1em;
     font-weight: 700;
     padding: 0 10px;
+}
+
+#edit-field-status{
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.vaga-edit-button{
+    width: 40%;
+    height: 32px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    color: #ffffff;
+    padding: 2px 2px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#edit-status-aberta-on{
+    background-color: #4CAF50;
+}
+#edit-status-aberta-off{
+    background-color: #1a1a1a;
+}
+
+#edit-status-encerrada-on{
+    background-color: #F44336;
+}
+#edit-status-encerrada-off{
+    background-color: #1a1a1a;
+}
+
+#edit-submit-button{
+    margin: 10px 0 0 0;
 }
