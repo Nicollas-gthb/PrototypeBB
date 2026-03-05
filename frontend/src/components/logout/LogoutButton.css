@@ -22,15 +22,11 @@
     cursor: pointer;
 }
 
-.component-logout-icon{
-    color: #000000;
-}
-
 #component-logout-text{
-    color: #000000;
-
+    color: #ffffff;
 }
 
 .bi-box-arrow-right{
     font-size: 30px;
+    color: #ffffff;
 }
