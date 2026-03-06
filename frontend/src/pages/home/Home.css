@@ -65,7 +65,7 @@
 .home-opcoes:hover {
 
     transform: translateY(-5px);
-    background-color: #ffec80;
+    background-color: #fff7c7;
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7);
 
 }
