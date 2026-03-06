@@ -13,7 +13,7 @@
 #list-background-titulo {
 
     text-align: center;
-    color: #003DA5;
+    color: var(--bancobrasil-blue);
     font-size: 1.8em;
 
     display: flex;
@@ -37,8 +37,8 @@ table {
 th,td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #dddddd;
-    color: #000000;
+    border-bottom: 1px solid var(--table-th-background);
+    color: var(--text-color);
 }
 
 td h2 {
@@ -51,13 +51,18 @@ td h2 {
 td{
     font-weight: 400;
     font-size: 0.9em;
+    
 }
 
 th {
-    background-color: #e6e4e4;
-    color: #0d0d0d;
+    background-color: var(--table-th-background);
+    color: var(--text-color);
     font-weight: bold;
     text-align: left;
+}
+
+tr{
+    background-color: var(--table-td-background);
 }
 
 .th-esquerda{
@@ -77,11 +82,11 @@ th {
 }
 
 tr:hover{
-    background-color: #cbcbcb;
+    background-color: var(--table-td-background-hover);
 }
 
 tr:hover .dash-button{
-    background-color: #cbcbcb;
+    background-color: var(--table-td-background-hover);
 }
 
 .dash-div{
@@ -108,7 +113,7 @@ tr:hover .dash-button{
 
 .dash-total:hover{
     text-decoration: underline;
-    color: #003DA5;
+    color: var(--bancobrasil-blue);
 }
 
 .dash-status-aberta{
@@ -135,17 +140,17 @@ tr:hover .dash-button{
     width: 30px;
     height: 30px;
     border: none;
-    background-color: #ffffff;
+    background-color: var(--table-td-background);
     margin: 0 5px;
     cursor: pointer;
 }
 
 .bi-info-circle-fill{
-    color: black;
+    color: var(--text-color);
     font-size: 25px;
 }
 
 .bi-pencil-square{
-    color: black;
+    color: var(--text-color);
     font-size: 25px;
 }

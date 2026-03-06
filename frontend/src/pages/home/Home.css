@@ -1,5 +1,5 @@
 #home-background{
-    background-color: #ffffff;
+    background-color: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,7 @@
 #home-titulo{
     display: flex;
     flex-direction: column;
-    color: #003399;
+    color: var(--bancobrasil-blue);
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
@@ -25,12 +25,13 @@
 
 .home-linkcard{
     text-decoration: none;
-    color: #000000;
+    color: var(--text-color);
+    font-size: 1.1em;;
     padding: 0px;
 }
 
 .home-opcoes{
-    background-color: #ffffff; /*#d8d8d8*/
+    background-color: var(--table-td-background); /*#d8d8d8*/
     border-radius: 16px;
     width: 350px;
     height: 400px;
@@ -52,7 +53,7 @@
     height: 40%;
     border-radius: 12px;
     margin-bottom: 15px;
-    background-color: #d8d8d8;
+    /* background-color: #ffffff; */
     padding: 15px;
     object-fit: contain;
 
@@ -72,13 +73,15 @@
 
 .home-opcoes h3 {
 
-    color: #003399;
+    color: var(--bancobrasil-blue);
     margin-bottom: 15px;
 
 }
 
 .home-opcoes p {
-    font-size: 0.95rem;
+    font-size: 0.95em;
+    color: var(--text-color);
+    font-weight: 490;
     margin-bottom: 20px;
     text-align: justify;
 }
@@ -91,20 +94,3 @@
     justify-content: center;
     width: 90%;
 }
-
-/* .botao {
-
-    text-decoration: none;
-    color: white;
-    background-color: #003399;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: bold;
-
-}
-
-.botao:hover {
-    background-color: #ffcc00;
-    color: #003399;
-    border: 1px solid #003399;
-} */

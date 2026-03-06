@@ -1,5 +1,5 @@
 #component-header{
-    background-color: #fbe304; /*ffcc00*/
+    background-color: var(--bancobrasil-yellow);
     width: 100vw;
     height: 70px;
     display: flex;

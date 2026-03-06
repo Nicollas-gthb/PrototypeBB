@@ -39,6 +39,6 @@
 }
 
 .loading-text{
-    color: #ffffff;
+    color: var(--table-td-background);
     font-size: 1.3em;
 }

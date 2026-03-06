@@ -1,7 +1,7 @@
 .register-fieldset{
     border-radius: 10px;
-    border: 1px solid #003da5;
-    color: #003da5;
+    border: 1px solid var(--bancobrasil-blue);
+    color: var(--bancobrasil-blue);
     width: 30vw;
     margin: 20px 0px;
     padding: 10px;
@@ -17,8 +17,8 @@
     font-size: 17px;
     width: 100%;
     margin: auto;
-    background-color: #ffffff;
-    color: #242424;
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding-left: 7px;
 }
 
@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
 
-    background-color: #ffffff;
+    background-color: var(--background-color);
     height: 600px;
     width: 80vw;
     border-radius: 30px;
@@ -41,7 +41,7 @@
 }
 
 #register-titulo{
-    color: #003da5;
+    color: var(--bancobrasil-blue);
     font-size: 20px;
 }
 
@@ -52,51 +52,6 @@
     flex-direction: column;
     width: 75%;
     margin: auto;
-}
-
-#register-switch{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-#input-admin{
-    display: none;
-}
-
-.register-slider{
-    width: 40px;
-    height: 20px;
-    background-color: #acacac;
-    border-radius: 20px;
-    position: relative;
-    transition: 0.3s;
-}
-
-.register-slider::before{
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-    transition: 0.3s;
-}
-
-#input-admin:checked + .register-slider{
-    background-color: #003da5
-}
-
-#input-admin:checked + .register-slider::before{
-    transform: translateX(20px);
-    background-color: #fbe304;
-}
-
-.register-label-text{
-    color: #737373;
 }
 
 #register-box-imagem{

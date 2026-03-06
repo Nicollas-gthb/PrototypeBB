@@ -14,7 +14,7 @@
 }
 
 #vaga-edit-main{
-    background-color: white;
+    background-color: var(--table-td-background);
     width: 75vw;
     height: 80vh;
     border-radius: 16px;
@@ -25,7 +25,7 @@
 
 #vaga-edit-close-button{
     border: none;
-    background-color: #ffffff;
+    background-color: var(--table-td-background);
     cursor: pointer;
     width: 7%;
     margin-left: auto;
@@ -39,11 +39,11 @@
 }
 
 #vaga-edit-close-button:hover .bi-x-circle{
-    color: #ffffff;
+    color: var(--table-td-background);
 }
 
 #vaga-edit-titulo{
-    color: #003DA5;
+    color: var(--bancobrasil-blue);
 }
 
 #vaga-edit-container{
@@ -57,8 +57,8 @@
 }
 
 .vaga-edit-input{
-    color: #000000;
-    background-color: #ffffff;
+    color: var(--text-color);
+    background-color: var(--table-td-background);
     border: none;
     font-size: 1.1em;
     width: 98%;
@@ -109,13 +109,13 @@
 }
 
 .vaga-edit-fieldset{
-    border: 2px solid #003DA5;
+    border: 2px solid var(--bancobrasil-blue);
     border-radius: 8px;
     padding: 5px;
 }
 
 .vaga-edit-legend{
-    color: #003DA5;
+    color: var(--bancobrasil-blue);
     font-size: 1.1em;
     font-weight: 700;
     padding: 0 10px;
@@ -135,7 +135,7 @@
     font-size: 1.1em;
     font-weight: bold;
     border: none;
-    color: #ffffff;
+    color: var(--table-td-background);
     padding: 2px 2px;
     border-radius: 7px;
     cursor: pointer;
@@ -143,16 +143,20 @@
 
 #edit-status-aberta-on{
     background-color: #4CAF50;
+    color: var(--table-td-background);
 }
 #edit-status-aberta-off{
-    background-color: #1a1a1a;
+    background-color: var(--text-color);
+    color: var(--table-td-background);
 }
 
 #edit-status-encerrada-on{
     background-color: #F44336;
+    color: var(--table-td-background);
 }
 #edit-status-encerrada-off{
-    background-color: #1a1a1a;
+    background-color: var(--text-color);
+    color: var(--table-td-background);
 }
 
 #edit-submit-button{

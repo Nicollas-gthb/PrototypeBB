@@ -14,7 +14,7 @@
 }
 
 #vaga-info-main{
-    background-color: white;
+    background-color: var(--table-td-background);
     width: 75vw;
     height: 60vh;
     border-radius: 16px;
@@ -24,7 +24,7 @@
 
 #vaga-info-close-button{
     border: none;
-    background-color: #ffffff;
+    background-color: var(--table-td-background);
     cursor: pointer;
     width: 7%;
     margin-left: auto;
@@ -38,11 +38,11 @@
 }
 
 #vaga-info-close-button:hover .bi-x-circle{
-    color: #ffffff;
+    color: var(--table-td-background);
 }
 
 #vaga-info-titulo{
-    color: #003DA5;
+    color: var(--bancobrasil-blue);
 }
 
 #vaga-info-container{
@@ -56,7 +56,7 @@
 }
 
 .vaga-info-content{
-    color: #000000;
+    color: var(--text-color);
     font-size: 1.3em;
     margin-bottom: 5px;
 }
@@ -84,13 +84,13 @@
 }
 
 .vaga-info-fieldset{
-    border: 2px solid #003DA5;
+    border: 2px solid var(--bancobrasil-blue);
     border-radius: 8px;
     padding: 5px;
 }
 
 .vaga-info-legend{
-    color: #003DA5;
+    color: var(--bancobrasil-blue);
     font-size: 1.1em;
     font-weight: 700;
     padding: 0 10px;
@@ -102,8 +102,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000000;
-    background-color: #ffffff;
+    color: var(--text-color);
+    background-color: var(--table-td-background);
     border: none;
     font: inherit;
     text-align: center;
