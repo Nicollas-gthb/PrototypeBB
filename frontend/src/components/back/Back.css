@@ -11,7 +11,7 @@
 }
 
 #component-back-button {
-    background-color: var(--bancobrasil-blue);
+    background-color: var(--main-text);
     display: flex;
     flex-direction: column;
     align-items: center;

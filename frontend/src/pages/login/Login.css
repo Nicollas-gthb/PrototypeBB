@@ -9,8 +9,8 @@
 
 .login-fieldset{
     border-radius: 10px;
-    border: 1px solid var(--bancobrasil-blue);
-    color: var(--bancobrasil-blue);
+    border: 1px solid var(--main-text);
+    color: var(--main-text);
     width: 30vw;
     margin: 20px 0px;
     padding: 10px;
@@ -58,7 +58,7 @@
 }
 
 #login-titulo{
-    color: var(--bancobrasil-blue);
+    color: var(--main-text);
     font-size: 20px;
 }
 
@@ -85,7 +85,7 @@
     padding: 20px;
     font-size: 20px;
     width: 100%;
-    background-color: var(--bancobrasil-blue);
+    background-color: var(--main-text);
     color: #ffffff;
     border: none;
     border-radius: 10px;

@@ -5,6 +5,7 @@ import "./Home.css"
 import { Header } from "../../components/header/Header"
 import { LogoutButton } from "../../components/logout/LogoutButton"
 import { AuthContext } from "../../contexts/AuthContext"
+import { ThemeToggle } from "../../components/theme/ThemeToggle"
 
 export default function Home(){
     const navigate = useNavigate()
@@ -38,7 +39,10 @@ export default function Home(){
             
             <Header />
 
-            <LogoutButton onCLick={handleLogout} />
+            <div id="home-sub-header">
+                <ThemeToggle />
+                <LogoutButton onCLick={handleLogout} />
+            </div>
 
             <main id="home-background">
             

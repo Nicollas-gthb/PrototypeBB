@@ -8,10 +8,17 @@
     flex-direction: column;
 }
 
+#home-sub-header{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
 #home-titulo{
     display: flex;
     flex-direction: column;
-    color: var(--bancobrasil-blue);
+    color: var(--main-text);
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
@@ -73,7 +80,7 @@
 
 .home-opcoes h3 {
 
-    color: var(--bancobrasil-blue);
+    color: var(--main-text);
     margin-bottom: 15px;
 
 }

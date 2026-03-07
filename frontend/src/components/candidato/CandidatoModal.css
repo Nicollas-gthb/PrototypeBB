@@ -46,7 +46,7 @@
 
 #candidato-titulo{
     text-align: center;
-    color: var(--bancobrasil-blue);
+    color: var(--main-text);
     font-size: 1.8em;
     display: flex;
     align-items: start;

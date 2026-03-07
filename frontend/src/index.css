@@ -22,12 +22,14 @@ body {
 
   --background-color: #f6f6f6;
   --text-color: #242424;
-  --bancobrasil-blue: #003DA5;
+  --main-text: #003DA5;
+  --second-text: #FBE304;
   --bancobrasil-yellow: #FBE304;
   --link-color: #06B8F3;
   --table-th-background: #E6E4E4;
-  --table-td-background: #FFFFFF;
+  --table-td-background: #ffffff;
   --table-td-background-hover: #DCDCDC;
+  --theme-button: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -38,10 +40,12 @@ body {
 [data-theme="dark"]{
   --background-color: #242424;
   --text-color: #FFFFFF;
-  --bancobrasil-blue: #003399;
+  --main-text: #FBE304;
+  --second-text: #003399; /*#003399*/
   --bancobrasil-yellow: #FFCC00;
   --link-color: #CCEC00;
   --table-th-background: #565656;
   --table-td-background: #323232;
   --table-td-background-hover: #525252;
+  --theme-button: #FFFFFF;
 }

@@ -42,7 +42,7 @@
 }
 
 #vaga-info-titulo{
-    color: var(--bancobrasil-blue);
+    color: var(--main-text);
 }
 
 #vaga-info-container{
@@ -84,13 +84,13 @@
 }
 
 .vaga-info-fieldset{
-    border: 2px solid var(--bancobrasil-blue);
+    border: 2px solid var(--main-text);
     border-radius: 8px;
     padding: 5px;
 }
 
 .vaga-info-legend{
-    color: var(--bancobrasil-blue);
+    color: var(--main-text);
     font-size: 1.1em;
     font-weight: 700;
     padding: 0 10px;
