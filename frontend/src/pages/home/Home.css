@@ -73,7 +73,7 @@
 .home-opcoes:hover {
 
     transform: translateY(-5px);
-    background-color: #fff7c7;
+    background-color: var(--card-hover);
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7);
 
 }

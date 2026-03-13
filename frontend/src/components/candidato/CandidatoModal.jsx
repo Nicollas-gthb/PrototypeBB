@@ -5,8 +5,8 @@ import { api } from "../../api/axios"
 export const CandidatoModal = ({ vagaId, onClose }) => {
     const [dados, setDados] = useState(null)
     const [loading, setLoading] = useState(true);
-    //dados.vaga == Objeto => {}
-    //dados.candidatos == Lista => []
+    //dados.vaga é um Objeto => {}
+    //dados.candidatos é uma Lista => []
 
     useEffect(() => {
         if(vagaId){
@@ -58,7 +58,7 @@ export const CandidatoModal = ({ vagaId, onClose }) => {
                                 <thead>
                                     <tr>
                                         <th className="th-esquerda">Nome</th>
-                                        <th>Cidade</th>
+                                        <th>Local</th>
                                         <th>Status</th>
                                         <th className="th-direita">Afinidade</th>
                                     </tr>

@@ -25,6 +25,7 @@ body {
   --main-text: #003DA5;
   --second-text: #FBE304;
   --bancobrasil-yellow: #FBE304;
+  --card-hover: #FFF7C7;
   --link-color: #06B8F3;
   --table-th-background: #E6E4E4;
   --table-td-background: #ffffff;
@@ -43,6 +44,7 @@ body {
   --main-text: #FBE304;
   --second-text: #003399; /*#003399*/
   --bancobrasil-yellow: #FFCC00;
+  --card-hover: #102156;
   --link-color: #CCEC00;
   --table-th-background: #565656;
   --table-td-background: #323232;

@@ -93,7 +93,7 @@ export default function ListVaga(){
                                             setModalInfoAberto(true)
                                             setVagaSelecionada(vaga)
                                         }} className="dash-button">
-                                            <div className="dash-button">
+                                            <div>
                                                 <i className="bi bi-info-circle-fill"></i>
                                             </div>
                                         </button>
@@ -104,8 +104,18 @@ export default function ListVaga(){
                                                     setModalEditAberto(true)
                                                     setVagaSelecionada(vaga)
                                                 }} className="dash-button">
-                                                    <div className="dash-button">
+                                                    <div>
                                                         <i className="bi bi-pencil-square"></i>
+                                                    </div>
+                                                </button>
+                                            </>
+                                        )}
+
+                                        { !user?.admin && (
+                                            <>
+                                                <button className="dash-button">
+                                                    <div>
+                                                        <i class="bi bi-person-add"></i>
                                                     </div>
                                                 </button>
                                             </>
