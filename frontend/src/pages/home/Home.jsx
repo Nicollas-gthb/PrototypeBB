@@ -25,8 +25,8 @@ export default function Home(){
         navigate("/list_vaga")
     }
 
-    function handleEditarVagas(){
-        navigate(/*rota de editar vaga*/)
+    function handleFichaCandidato(){
+        navigate("/create_candidate")
     }
 
     function handleLogout(){
@@ -79,13 +79,13 @@ export default function Home(){
                     </div>
 
                     <div className="home-linkcard">
-                        <div onClick={handleEditarVagas} className="home-opcoes">
+                        <div onClick={handleFichaCandidato} className="home-opcoes">
                             <img src="https://cdn-icons-png.flaticon.com/512/3597/3597104.png" alt="Editar Vagas"/>
 
                             <div className="home-conteudo">
 
-                                <h3>Editar Vagas</h3>
-                                <p>Edite vagas já abertas para atualizar informações ou encerrá-las.</p>
+                                <h3>Criar Ficha de Candidato</h3>
+                                <p>Crie uma ficha de candidato para se aplicar em uma vaga.</p>
 
                             </div>
                         </div>
