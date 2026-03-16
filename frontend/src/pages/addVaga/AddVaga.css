@@ -123,7 +123,7 @@
 
 .add-submit-button:hover {
     background-color: var(--second-text);
-    color: white;
+    color: var(--text-color);
 }
 
 #add-requisitos-field{

@@ -66,6 +66,7 @@ async def login(
         "refresh_token": refresh_token,
         "token_type": "bearer",
         "user": {
+            "id": usuario_existente.id,
             "username": usuario_existente.nome,
             "admin": usuario_existente.admin
         }
