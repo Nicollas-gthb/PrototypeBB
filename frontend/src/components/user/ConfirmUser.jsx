@@ -3,7 +3,7 @@ import "./ConfirmUser.css"
 export const ConfirmUser = ({ userId, onClose }) => {
 
     const handleOutSideClick = (e) => {
-        if(e.target.id === "candidato-background"){
+        if(e.target.id === "confirm-user-background"){
             onClose()
         }
     }
