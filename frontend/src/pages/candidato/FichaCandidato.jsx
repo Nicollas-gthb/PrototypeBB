@@ -92,8 +92,7 @@ export default function CreateCandidate(){
 
             {userEditAberto && (
                 <ConfirmUser 
-                    // onClick={handleSubmit}
-                    userId={user.id}
+                    userId={Number(user.id)}
                     onClose={() => {setUserEditAberto(false)}}
                 /> 
             )}
