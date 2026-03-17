@@ -40,6 +40,8 @@ async def criar_candidato(
     session.add(novo_candidato)
     session.commit()
     session.refresh(novo_candidato)
+
+    return novo_candidato
     
     
 
