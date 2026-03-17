@@ -14,9 +14,9 @@ export const ThemeToggle = () => {
                 id="theme-button"
             >
                 {theme === "light" ? (
-                    <i class="bi bi-sun-fill"></i>
+                    <i className="bi bi-sun-fill"></i>
                 ) : (
-                    <i class="bi bi-moon-stars-fill"></i>
+                    <i className="bi bi-moon-stars-fill"></i>
                 )}
                 <p id="theme-text">Modo {theme === "light" ? "Claro" : "Escuro"}</p>
             </button>

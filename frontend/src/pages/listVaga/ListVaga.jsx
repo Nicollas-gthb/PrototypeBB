@@ -115,7 +115,7 @@ export default function ListVaga(){
                                             <>
                                                 <button className="dash-button">
                                                     <div>
-                                                        <i class="bi bi-person-add"></i>
+                                                        <i className="bi bi-person-add"></i>
                                                     </div>
                                                 </button>
                                             </>

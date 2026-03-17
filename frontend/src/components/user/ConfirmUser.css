@@ -1,0 +1,40 @@
+#confirm-user-background{
+    z-index: 2;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#confirm-user-main{
+    background-color: var(--table-td-background);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+#confirm-user-close-button{
+    border: none;
+    background-color: var(--table-td-background);
+    cursor: pointer;
+    width: 7%;
+    margin-left: auto;
+    border-radius: 0 16px 0 0;
+    padding: 5px 0;
+    transition: 0.5s;
+}
+
+#confirm-user-close-button:hover{
+    background-color: #F44336;
+}
+
+#confirm-user-close-button:hover .bi-x-circle{
+    color: var(--table-td-background);
+}
