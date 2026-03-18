@@ -36,9 +36,33 @@ export const ConfirmUser = ({ userId, onClose }) => {
                 </button>
                 <h1 id="confirm-user-titulo">Confirme os dados de usuario</h1>
 
-                <p>{dados?.id}</p>
-                <p>{dados?.email}</p>
-                <p>{dados?.nome}</p>
+                {loading ? (
+                    <p>
+                        Carregando...
+                    </p>
+                ) : (
+                    <>
+                        <div id="confirm-user-container">
+                            <div className="confirm-user-info">
+                                <p className="confirm-user-textbold">Nome:</p>
+                                <p>{dados?.nome}</p>
+                            </div>
+                            <div className="confirm-user-info">
+                                <p className="confirm-user-textbold">Email:</p>
+                                <p>{dados?.email}</p>
+                            </div>
+                            <div className="confirm-user-info">
+                                <p className="confirm-user-textbold">Estado:</p>
+                                <p>{dados?.estado}</p>
+                            </div>
+                        </div>
+
+                        <div id="user-confirm-buttons">
+                            <button className="reject-button">Fazer alteração</button>
+                            <button className="confirm-button">Confirmar</button>
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     )
