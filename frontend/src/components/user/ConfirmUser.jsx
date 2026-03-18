@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import "./ConfirmUser.css"
 import { api } from "../../api/axios"
@@ -6,7 +7,9 @@ import { api } from "../../api/axios"
 export const ConfirmUser = ({ userId, onClose }) => {
     
     const [dados, setDados] = useState(null)
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
+
+    const navigate = useNavigate()
     
     useEffect(() => {
         setLoading(true)
@@ -26,6 +29,10 @@ export const ConfirmUser = ({ userId, onClose }) => {
         if(e.target.id === "confirm-user-background"){
             onClose()
         }
+    }
+
+    const handleAlteracao = () => {
+        navigate("/home")
     }
 
     return (
@@ -58,8 +65,15 @@ export const ConfirmUser = ({ userId, onClose }) => {
                         </div>
 
                         <div id="user-confirm-buttons">
-                            <button className="reject-button">Fazer alteração</button>
-                            <button className="confirm-button">Confirmar</button>
+                            <button 
+                                className="reject-button"
+                                onClick={handleAlteracao}
+                            >Fazer alteração</button>
+
+                            <button 
+                                className="confirm-button"
+                                onClick={onClose}
+                            >Confirmar</button>
                         </div>
                     </>
                 )}
