@@ -6,6 +6,7 @@ import { Header } from "../../components/header/Header"
 import { Back } from "../../components/back/Back"
 import { ConfirmUser } from "../../components/user/ConfirmUser"
 import { AuthContext } from "../../contexts/AuthContext"
+import { api } from "../../api/axios"
 
 export default function CreateCandidate(){
 
@@ -24,9 +25,42 @@ export default function CreateCandidate(){
         navigate("/home")
     }
 
-    // function handleSubmit(e){
-    //     e.preventDefault()
-    // }
+    async function handleSubmit(e){
+        e.preventDefault()
+        setLoading(true)
+
+        const payload = {
+            id_usuario: user.id,
+            cargo_atual: cargoAtual,
+            area_atual: areaAtual,
+            conhecimentos: conhecimentos || null
+        }
+
+        try{
+            const response = await api.post(`/user/${user.id}/create_candidato`, payload)
+            alert("Ficha de candidato criada com sucesso!")
+            navigate("/home")
+        }catch(error){
+
+            if(error.response){
+                const status = error.response.status
+                const mensagemBackend = error.response.data.detail
+
+                if(status === 403){
+                    alert(`Ação invalida: ${mensagemBackend}`)
+                }else if(status === 401){
+                    alert("Sua seção expirou, faça login novamente!")
+                    navigate("/")
+                }else{
+                    alert(`Erro ao salvar informações: ${mensagemBackend}`)
+                }
+            }else{
+                alert("Não foi possível conectar ao servidor.")
+            }
+        }finally{
+            setLoading(false)
+        }
+    }
 
     return (
         <>
@@ -39,9 +73,7 @@ export default function CreateCandidate(){
 
                 <section id="ficha-section-box">
 
-                    <form id="ficha-form" onSubmit={() => {
-                        setUserEditAberto(true)
-                    }}>
+                    <form id="ficha-form" onSubmit={handleSubmit}>
 
                         <div id="ficha-form-cima">
                             <fieldset className="ficha-field">
