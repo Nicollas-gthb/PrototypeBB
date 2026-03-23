@@ -22,6 +22,10 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
+    font-size: 1.2rem;
+}
+
+#home-titulo-username{
     font-size: 2rem;
     font-weight: bold;
 }
@@ -88,7 +92,6 @@
 .home-opcoes p {
     font-size: 0.95em;
     color: var(--text-color);
-    font-weight: 490;
     margin-bottom: 20px;
     text-align: justify;
 }

@@ -35,6 +35,7 @@ export default function Home(){
             
                 <section id="home-titulo">
                     <p>Bem Vindo</p>
+                    <p id="home-titulo-username">{user.username}</p>
                     <p>O que deseja fazer?</p>
                 </section>
 
