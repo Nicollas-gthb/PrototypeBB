@@ -4,7 +4,7 @@ import { api } from "../../api/axios"
 import { AuthContext } from "../../contexts/AuthContext"
 
 import "./Login.css"
-import { Header } from "../../components/header/Header"
+import logo from "../../assets/bb_logo.svg"
 
 export default function Login(){
     //quando o use context é usado, ele volta na primeira tag <AuthContext.Provider> 
@@ -39,7 +39,9 @@ export default function Login(){
 
     return (
         <>
-            <Header />
+            <header id="header-inicial">
+                <img id="header-img" src={logo} alt="logo" /> 
+            </header>
 
             <main className="background">
                 <section id="login">

@@ -7,6 +7,22 @@
     justify-content: center;
 }
 
+#header-inicial{
+    background-color: var(--bancobrasil-yellow);
+    width: 100vw;
+    height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    z-index: 1;
+}
+
+#header-img{
+    height: 100%;
+    margin-top: 20px;
+}
+
 .login-fieldset{
     border-radius: 10px;
     border: 1px solid var(--main-text);
@@ -86,7 +102,7 @@
     font-size: 20px;
     width: 100%;
     background-color: var(--main-text);
-    color: #ffffff;
+    color: var(--background-color);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -97,7 +113,6 @@
 .button-enviar:hover{
     background-color: var(--bancobrasil-yellow);
     color: #000000;
-    border: 1px solid rgb(0, 0, 0);
 }
 
 #login-box-imagem{

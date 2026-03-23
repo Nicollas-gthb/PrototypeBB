@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { api } from "../../api/axios"
 
 import "./Register.css"
-import { Header } from "../../components/header/Header"
+import logo from "../../assets/bb_logo.svg"
 
 export default function Register(){
     
@@ -42,7 +42,9 @@ export default function Register(){
 
     return (
         <>
-            <Header />
+            <header id="header-inicial">
+                <img id="header-img" src={logo} alt="logo" /> 
+            </header>
 
             <main className="background">
                 <section id="register">
