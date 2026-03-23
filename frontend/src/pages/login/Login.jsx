@@ -1,5 +1,5 @@
 import { useState, useContext } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { api } from "../../api/axios"
 import { AuthContext } from "../../contexts/AuthContext"
 
@@ -10,7 +10,6 @@ export default function Login(){
     //quando o use context é usado, ele volta na primeira tag <AuthContext.Provider> 
     // que encontrar, e procura no value o { login }
     const { login } = useContext(AuthContext)
-    const navigate = useNavigate()
 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")

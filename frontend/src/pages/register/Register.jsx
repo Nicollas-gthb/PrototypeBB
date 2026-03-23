@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { api } from "../../api/axios"
 
 import "./Register.css"
@@ -113,6 +113,8 @@ export default function Register(){
                                     maxLength="2"
                                 />
                             </fieldset>
+
+                            <Link to="/" className="login-link">Já tenho conta</Link>
 
                             <button 
                                 className="button-enviar" 
