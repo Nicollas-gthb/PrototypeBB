@@ -3,14 +3,11 @@ import { useContext } from "react"
 
 import "./Home.css"
 import { Header } from "../../components/header/Header"
-import { LogoutButton } from "../../components/logout/LogoutButton"
 import { AuthContext } from "../../contexts/AuthContext"
-import { ThemeToggle } from "../../components/theme/ThemeToggle"
 
 export default function Home(){
     const navigate = useNavigate()
 
-    const { logout } = useContext(AuthContext)
     const { user } = useContext(AuthContext)
 
     function handleCriarVagas(){
@@ -29,20 +26,10 @@ export default function Home(){
         navigate("/create_candidate")
     }
 
-    function handleLogout(){
-        logout()
-        navigate("/")
-    }
-
     return(
         <>
             
             <Header />
-
-            <div id="home-sub-header">
-                <ThemeToggle />
-                <LogoutButton onCLick={handleLogout} />
-            </div>
 
             <main id="home-background">
             

@@ -22,8 +22,13 @@
     cursor: pointer;
 }
 
+#perfil-button:hover{
+    background-color: var(--table-td-background-hover);
+}
+
 #perfil-text{
     font-size: 1.1em;
+    font-weight: bold;
 }
 
 .bi-person-circle{
