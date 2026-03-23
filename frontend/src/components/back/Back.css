@@ -11,24 +11,30 @@
 }
 
 #component-back-button {
-    background-color: var(--main-text);
+    background-color: var(--background-color);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
     width: 75%;
-    height: 100%;
+    height: 80%;
     margin: 5px 0px 0px 15px;
     border-radius: 9px;
     border: none;
     cursor: pointer;
 }
 
+#component-back-button:hover {
+    background-color: var(--table-td-background-hover);
+}
+
 .bi-arrow-left{
-    font-size: 40px;
-    color: var(--background-color);
+    font-size: 30px;
+    color: var(--text-color);
 }
 
 #component-back-text{
-    font-size: 1.3em;
-    color: var(--background-color);
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-color);
 }
