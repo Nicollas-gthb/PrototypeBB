@@ -11,6 +11,21 @@
     z-index: 1;
 }
 
+#component-header-left{
+    height: 100%;
+    width: 50%;
+}
+
 #component-header-img{
     height: 100%;
+}
+
+#component-header-right{
+    background-color: var(--background-color);
+    height: 100%;
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }

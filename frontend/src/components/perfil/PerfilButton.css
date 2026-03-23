@@ -1,4 +1,4 @@
-#theme-container{
+#perfil-container{
     height: 75px;
     width: 20%;
     display: flex;
@@ -6,30 +6,26 @@
     justify-content: center;
 }
 
-#theme-button{
+#perfil-button{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--theme-button);
-    background-color: var(--theme-button-background);
-    width: 90%;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    width: 85%;
     height: 70%;
     border: none;
     border-radius: 9px;
     
     padding: 0px 10px;
-    gap: 5px;
+    gap: 10px;
     cursor: pointer;
 }
 
-#theme-text{
+#perfil-text{
     font-size: 1.1em;
 }
 
-.bi-sun-fill{
+.bi-person-circle{
     font-size: 25px;
-}
-
-.bi-moon-stars-fill{
-    font-size: 20px;
 }
