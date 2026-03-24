@@ -37,41 +37,25 @@
 .home-linkcard{
     text-decoration: none;
     color: var(--text-color);
-    font-size: 1.1em;;
+    font-size: 1.1em;
     padding: 0px;
 }
 
 .home-opcoes{
     background-color: var(--table-td-background); /*#d8d8d8*/
     border-radius: 16px;
-    width: 350px;
-    height: 400px;
+    width: 400px;
+    height: 250px;
     text-align: left;
-    padding: 10px;
+    padding: 30px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7);
     margin: 0px 40px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-
-.home-opcoes img {
-
-    width: 90%;
-    height: 40%;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    /* background-color: #ffffff; */
-    padding: 15px;
-    object-fit: contain;
-
-    display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
-
+    gap: 10px;
 }
 
 .home-opcoes:hover {
@@ -82,15 +66,27 @@
 
 }
 
-.home-opcoes h3 {
+.home-card-titulo{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--main-text);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
 
+.bi-file-earmark-plus, .bi-journal-medical, .bi-person-vcard{
+    font-size: 30px;
+}
+
+.home-opcoes h3 {
     color: var(--main-text);
     margin-bottom: 15px;
-
 }
 
 .home-opcoes p {
-    font-size: 0.95em;
+    font-size: 1em;
+    font-weight: 500;
     color: var(--text-color);
     margin-bottom: 20px;
     text-align: justify;
