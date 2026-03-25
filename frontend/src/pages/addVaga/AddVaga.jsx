@@ -22,10 +22,6 @@ export default function AddVaga(){
 
     const { token } = useContext(AuthContext)
 
-    function handlePrevious(){
-        navigate("/home")
-    }
-
     async function handleSubmit(e){
         e.preventDefault()
         setLoading(true)
@@ -76,8 +72,7 @@ export default function AddVaga(){
     return(
         <>
             <Header />
-
-            <Back onClick={handlePrevious} />
+            <Back />
 
             <main id="add-background">
 

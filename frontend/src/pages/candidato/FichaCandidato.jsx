@@ -21,10 +21,6 @@ export default function CreateCandidate(){
 
     const [userEditAberto, setUserEditAberto] = useState(true)
 
-    function handlePrevious(){
-        navigate("/home")
-    }
-
     async function handleSubmit(e){
         e.preventDefault()
         setLoading(true)
@@ -66,7 +62,7 @@ export default function CreateCandidate(){
         <>
 
             <Header />
-            <Back onClick={handlePrevious}/>
+            <Back />
 
             <main id="ficha-background">
                 <h1 id="ficha-titulo">Criar ficha do candidato</h1>

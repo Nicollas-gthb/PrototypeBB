@@ -16,19 +16,12 @@ export default function ListVaga(){
 
     const { user, loading } = useContext(AuthContext)
     
-
-    const navigate = useNavigate()
     const [vagas, setVagas] = useState([])
     const [idVagaSelecionada, setidVagaSelecionada] = useState(null)
     const [vagaSelecionada, setVagaSelecionada] = useState({})
     const [modalCandidatosAberto, setModalCandidatosAberto] = useState(false)
     const [modalInfoAberto, setModalInfoAberto] = useState(false)
     const [modalEditAberto, setModalEditAberto] = useState(false)
-
-    function handlePrevious(){
-        navigate("/home")
-    }
-
     
     useEffect(() => {
         api.get("/vagas/dashboard").then(response => {
@@ -43,7 +36,7 @@ export default function ListVaga(){
     return (
         <>
             <Header />
-            <Back onClick={handlePrevious}/>
+            <Back />
 
             
             <main id="list-background">
