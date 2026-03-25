@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom"
 import { useContext, useState } from "react"
 import { api } from "../../api/axios"
 
+import "./AddVaga.css"
 import { Header } from "../../components/header/Header"
 import { Back } from "../../components/back/Back"
-import "./AddVaga.css"
 import { AuthContext } from "../../contexts/AuthContext"
 
 export default function AddVaga(){

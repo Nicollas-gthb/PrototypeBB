@@ -28,7 +28,7 @@ export const Header = () => {
 
             <nav id="component-header-right">    
                 <ThemeToggle />
-                <PerfilButton />
+                <PerfilButton/>
                 <LogoutButton onCLick={handleLogout}/>
             </nav>
         </header>

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import "./Home.css"
 import { Header } from "../../components/header/Header"
@@ -9,6 +9,13 @@ export default function Home(){
     const navigate = useNavigate()
 
     const { user } = useContext(AuthContext)
+    const [userName, setUserName] = useState("")
+
+    useEffect(() => {
+        if(user){
+            setUserName(user.username)
+        }
+    }, [user])
 
     function handleCriarVagas(){
         if(user.admin){
@@ -35,7 +42,7 @@ export default function Home(){
             
                 <section id="home-titulo">
                     <p>Bem Vindo</p>
-                    <p id="home-titulo-username">{user.username}</p>
+                    <p id="home-titulo-username">{userName}</p>
                     <p>O que deseja fazer?</p>
                 </section>
 
@@ -44,7 +51,7 @@ export default function Home(){
                         <div onClick={handleCriarVagas} className="home-opcoes">
 
                             <div className="home-card-titulo">
-                                <i class="bi bi-file-earmark-plus"></i>
+                                <i className="bi bi-file-earmark-plus"></i>
                                 <h3>Adicionar Vaga</h3>
                             </div>
 
@@ -59,7 +66,7 @@ export default function Home(){
                         <div onClick={handleVerVagas} className="home-opcoes">
 
                             <div className="home-card-titulo">
-                                <i class="bi bi-journal-medical"></i>
+                                <i className="bi bi-journal-medical"></i>
                                 <h3>Ver Vagas</h3>
                             </div>
 
@@ -74,7 +81,7 @@ export default function Home(){
                         <div onClick={handleFichaCandidato} className="home-opcoes">
 
                             <div className="home-card-titulo">
-                                <i class="bi bi-person-vcard"></i>
+                                <i className="bi bi-person-vcard"></i>
                                 <h3>Criar Ficha de Candidato</h3>
                             </div>
 

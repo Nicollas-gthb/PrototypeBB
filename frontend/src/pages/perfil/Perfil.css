@@ -1,0 +1,9 @@
+#perfil-background{
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100vw;
+    flex-direction: column;
+}
